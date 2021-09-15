@@ -2,9 +2,13 @@
     <fieldset>
         <legend>Add Employee</legend>
         <form [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()">
-            <label>ID:</label>
-            <input type="number" formControlName="_id"><br>
-            <input type="submit" value="Login" [disabled]="!addEmployeeForm.valid">
+            <label>First Name:</label>
+            <input type="text" formControlName="fname"><br>
+            <label>Last Name:</label>
+            <input type="text" formControlName="lname"><br>
+            <label>Email:</label>
+            <input type="text" formControlName="email"><br>
+            <input type="submit" value="Add Employee" [disabled]="!addEmployeeForm.valid">
             <input type="reset" value="Clear">
         </form>
         <a routerLink="/admin">back to admin page</a>
