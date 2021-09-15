@@ -2,6 +2,7 @@
 let express = require("express");
 let mongoose = require("mongoose");
 let cors = require("cors");
+let bodyParser = require("body-parser");
 let app = express();
 let userRouter = require("./router/user.router")
 
@@ -9,7 +10,8 @@ let userRouter = require("./router/user.router")
 app.use(cors());
 
 //bodyparser is depricated replaced by express.urlencoded
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+//app.use(express.urlencoded({ extended: true }));
 
 //Database URL
 let url = "mongodb://localhost:27017/mylib"

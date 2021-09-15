@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,6 +9,7 @@ import { FormControl,FormGroup,Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
+  msg?:string;
   signupForm = new FormGroup({
     fname: new FormControl("",Validators.required),
     mname: new FormControl("",),
@@ -20,13 +22,20 @@ export class SignupComponent implements OnInit {
     password: new FormControl("",Validators.required)
   })
 
-  constructor() { }
+  constructor(public userSer:UserService) { }
 
   ngOnInit(): void {
   }
 
   createUser(){
-
+    let user = this.signupForm.value;
+    console.log(user);
+    this.userSer.userAccountCreate(user).
+    subscribe(result=>{
+      this.msg = result;
+    },
+    error=>console.log(error));
+    this.signupForm.reset();
   }
 
 }

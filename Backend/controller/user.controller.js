@@ -2,26 +2,26 @@
 let userModel = require("../model/user.model");
 
 let signUp = async (request,response)=>{
-    let user = request.body;
-    let userIndex = await userModel.findOne({email:user.email});
+    let user = request.body;//get user from form body
+    let last = await userModel.findOne({}).sort({_id:-1});//get last user in database
+    let userIndex = await userModel.findOne({email:user.email});//make sure that the email is unique
     if(userIndex!=null){
-        response.send("Email and username must be unique!");
+        response.send("Email be must be unique!");
     }
     else{
-        await userModel.insertMany(user);
-        user = await userModel.findOne({email:user.email});
+        user._id=last._id+1;//increment the id from last user and assign it
+        await userModel.insertMany(user);//add user to database
         response.send(`Thank you for signing up your user ID is: ${user._id}`)
     }
 }
 let signIn = async (request,response)=>{
     let user = request.body;
-    let userIndex = await userModel.findOne({email:user.email,password:user.password});
+    let userIndex = await userModel.findOne({_id:user._id,password:user.password});
     if(userIndex!=null){
-        response.send("Success")
+        response.send("Success");
     }
     else{
-        response.send("Username or Password is incorrect!");
-        
+        response.send("UserID or Password is incorrect!");
     }
 }
 
