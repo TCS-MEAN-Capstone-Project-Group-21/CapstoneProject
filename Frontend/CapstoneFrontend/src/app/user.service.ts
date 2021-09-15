@@ -16,8 +16,8 @@ export class UserService {
     {responseType:'text'});
   }
 
-  userAccountCreate(login:User):Observable<any>{
-    return this.http.post("http://localhost:9090/api/user/signUp",login,
+  userAccountCreate(signup:User):Observable<any>{
+    return this.http.post("http://localhost:9090/api/user/signUp",signup,
     {responseType:'text'});
   }
 }
