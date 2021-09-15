@@ -6,7 +6,9 @@ let router = express.Router();
 let productController = require("../controller/product.controller");
 
 
-// router.post("/signIn",userController.signIn);
-// router.post("/signUp",userController.signUp);
+router.get("/getAllProducts",productController.getAllProductDetails);
+router.post("/storeProduct",productController.storedProductInfo);
+router.delete("/deleteProduct/:pid",productController.deleteProductInfo);
+router.put("/updateProduct",productController.updateProductDetails);
 
 module.exports=router;
