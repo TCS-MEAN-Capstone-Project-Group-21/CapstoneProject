@@ -1,1 +1,13 @@
-<p>delete-employee works!</p>
+<div class="text-center">
+    <fieldset>
+        <legend>Delete Employee</legend>
+        <form [formGroup]="deleteEmployeeForm" (ngSubmit)="removeEmployee()">
+            <label>ID:</label>
+            <input type="number" formControlName="_id"><br>
+            <input type="submit" value="Login" [disabled]="!deleteEmployeeForm.valid">
+            <input type="reset" value="Clear">
+        </form>
+        <a routerLink="/admin">back to admin page</a>
+    </fieldset>
+    {{msg}}
+</div>
