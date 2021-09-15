@@ -3,9 +3,11 @@ let express = require("express");
 let mongoose = require("mongoose");
 let cors = require("cors");
 let app = express();
+let userRouter = require("./router/user.router")
 
 //add middleware
 app.use(cors());
+
 //bodyparser is depricated replaced by express.urlencoded
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,5 +17,7 @@ let url = "mongodb://localhost:27017/mylib"
 
 // connect the database 
 mongoose.connect(url).then(res=>console.log("connected")).catch(error=>console.log(error));
+
+app.use("/api/user",userRouter);
 
 app.listen(9090, () => console.log("Server running on port number 9090"))
