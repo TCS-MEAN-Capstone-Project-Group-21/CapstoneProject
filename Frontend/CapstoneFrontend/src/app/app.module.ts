@@ -14,6 +14,9 @@ import { SelectitemsComponent } from './selectitems/selectitems.component';
 import { ViewitemsComponent } from './viewitems/viewitems.component';
 import { DeleteitemsComponent } from './deleteitems/deleteitems.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { GenerateRepotsComponent } from './generate-repots/generate-repots.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { CheckoutComponent } from './checkout/checkout.component';
     SelectitemsComponent,
     ViewitemsComponent,
     DeleteitemsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddEmployeeComponent,
+    DeleteEmployeeComponent,
+    GenerateRepotsComponent
   ],
   imports: [
     BrowserModule,
