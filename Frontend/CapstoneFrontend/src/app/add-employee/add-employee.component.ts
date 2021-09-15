@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl,FormGroup,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-employee',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
-
+  msg?:string;
   constructor() { }
 
+  addEmployeeForm = new FormGroup({
+
+  })
   ngOnInit(): void {
+  }
+  addEmployee(){
+
   }
 
 }
