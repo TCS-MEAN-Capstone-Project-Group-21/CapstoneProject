@@ -9,7 +9,12 @@ let signUp = async (request,response)=>{
         response.send("Email be must be unique!");
     }
     else{
-        user._id=last._id+1;//increment the id from last user and assign it
+        if(last!=null){
+            user._id=last._id+1;//increment the id from last user and assign it
+        }
+        else{
+            user._id=0
+        }
         user.attempts = 3;
         user.funds = 100;
         await userModel.insertMany(user);//add user to database
