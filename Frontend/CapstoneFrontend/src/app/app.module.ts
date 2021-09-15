@@ -9,6 +9,11 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RaiseticketComponent } from './raiseticket/raiseticket.component';
+import { SelectitemsComponent } from './selectitems/selectitems.component';
+import { ViewitemsComponent } from './viewitems/viewitems.component';
+import { DeleteitemsComponent } from './deleteitems/deleteitems.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MainComponent,
     UserComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    RaiseticketComponent,
+    SelectitemsComponent,
+    ViewitemsComponent,
+    DeleteitemsComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
