@@ -11,7 +11,7 @@ export class DeleteEmployeeComponent implements OnInit {
 
   constructor() { }
   deleteEmployeeForm = new FormGroup({
-
+    _id: new FormControl("",Validators.required),
   })
 
   ngOnInit(): void {
