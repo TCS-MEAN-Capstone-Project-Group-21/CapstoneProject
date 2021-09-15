@@ -1,21 +1,22 @@
 <div class="text-center">
     <fieldset>
         <legend>Sign Up For Free!</legend>
-        <form>
+        <form [formGroup]="signupForm" (ngSubmit)="createUser()">
             <label>First Name:</label>
-            <input type="text" name="fname" id="fname"><br>
+            <input type="text" formControlName="fname"><br>
             <label>Middle Name:</label>
-            <input type="text" name="mname" id="mname"><br>
+            <input type="text" formControlName="mname"><br>
             <label>Last Name:</label>
-            <input type="text" name="lname" id="lname"><br>
+            <input type="text" formControlName="lname"><br>
             <label>Birth Day:</label>
-            <input type="date" name="birth" id="birth"><br>
+            <input type="date" formControlName="birth"><br>
             <label>Phone Number:</label>
-            <input type="number" name="phone" id="phone"><br>
+            <input type="text" formControlName="phone"><br>
             <label>Email:</label>
-            <input type="email" name="email" id="email"><br>
+            <input type="email" formControlName="email"><br>
             <label>Password:</label>
-            <input type="password" name="password" id="password"><br>
+            <input type="password" formControlName="password"><br>
+            <input type="submit" value="Sign up" [disabled]="!signupForm.valid">
         </form>
         <a routerLink="/login">Back to Login</a>
         <a routerLink="">Back to Home</a>

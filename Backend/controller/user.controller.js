@@ -17,7 +17,7 @@ let signIn = async (request,response)=>{
     let user = request.body;
     let userIndex = await userModel.findOne({email:user.email,password:user.password});
     if(userIndex!=null){
-        response.redirect("../user/loggedin")
+        response.send("Success")
     }
     else{
         response.send("Username or Password is incorrect!");
