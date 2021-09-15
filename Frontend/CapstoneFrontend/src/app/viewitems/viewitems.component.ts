@@ -12,4 +12,31 @@ export class ViewitemsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  displayTable(){
+    // let product = localStorage.getItem("productArray");
+    // let productJson = JSON.parse(product);
+
+    // console.log("Test item: " + productJson[1].name)
+    // console.log("Test item price: " + productJson[1].price)
+
+    //--OBTAIN USER SELECTED ITEMS FROM DATABASE--
+
+    // let insertContent="";
+
+    // for (let i=0; i < productJson.length; i++){
+    //     insertContent += 
+    //     `<tr>
+    //         <td>${productJson[i].name}</td> 
+    //         <td>${productJson[i].price}</td>
+    //         <td>${productJson[i].quantity}</td> 
+    //         <td>${productJson[i].totalprice}</td> 
+    //     </tr>`;
+    // }
+
+    // document.getElementById("checkoutTable").innerHTML=insertContent;
+
+    // displayTotalAmount();
+
+}
+
 }
