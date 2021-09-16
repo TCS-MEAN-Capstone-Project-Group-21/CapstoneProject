@@ -1,5 +1,6 @@
 //import model
 let productModel = require("../model/product.model");
+
 let getNewProduct = ((request,response)=>{
     let product = request.body
     productModel.create(product, (err,results)=>{

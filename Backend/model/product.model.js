@@ -4,7 +4,7 @@ mongoose.pluralize(null);
 
 let productSchema = mongoose.Schema({
     _id:{type:Number, require:true},
-    productid:{type:Number},
+    productid:{type:Number, require:true},
     productname:{type:String},
     productprice:{type:Number},
     productquantity:{type:Number},
