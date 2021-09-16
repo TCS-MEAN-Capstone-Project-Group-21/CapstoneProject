@@ -35,6 +35,11 @@ export class CheckoutComponent implements OnInit {
 
     // this.leftOverAmount=this.totalFunds? - parseFloat(this.totalCartCost?);
 
+    // ---  where to get the json object/array of the user's selection
+    // --iterate through for loop for each price and quantity amount, get total amount each time
+    // -- add total product amount to total cart cost amount
+    // --
+
     this.leftOverAmount=this.totalFunds - this.totalCartCost;
 
     if(this.leftOverAmount >= 0 ){
