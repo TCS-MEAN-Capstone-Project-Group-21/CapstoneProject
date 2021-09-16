@@ -39,13 +39,13 @@ let deleteEmployee= async(request,response)=>{
 
 let editprofile = async (request,response)=>{
     let employee = request.body;//get employee from form body
-    let employeeIndex = await employeeModel.findOne({Password:employee.Password});//make sure that the password
+    let employeeIndex = await employeeModel.findOne({_id:employee._id,password:employee.password});//make sure that the password is not the same as the old one
     if(employeeIndex!=null){
         response.send("Password be must be unique!");
     }
     else{
-        await employeeModel.updateOne(employee);//update employee in database
-        response.send(`Thank you for signing up your employee ID is: ${employee._id}`)
+        await employeeModel.updateOne({_id:employee._id},{$set:{password:employee.password}});//update employee in database
+        response.send(`Thank you for updating your password!`)
     }
 }
 
