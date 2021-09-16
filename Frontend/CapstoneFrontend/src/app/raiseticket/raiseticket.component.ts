@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-raiseticket',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RaiseticketComponent implements OnInit {
 
-  constructor() { }
+  userID?:number;
+  ticketMsg?:String;
+
+  constructor(public activateRoute:ActivatedRoute,public router:Router) { }
 
   ngOnInit(): void {
+    this.activateRoute.params.subscribe(data=>this.userID=data.userid);
+    this.activateRoute.params.subscribe(data=>this.ticketMsg=data.issue);
   }
+
+  // WHAT PART TO SEND TO DATABASE
 
 }
