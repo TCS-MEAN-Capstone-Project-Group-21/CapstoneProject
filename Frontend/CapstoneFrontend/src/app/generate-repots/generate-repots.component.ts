@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Order } from '../order';
 import { UserService } from '../user/user.service';
 
@@ -18,10 +19,16 @@ export class GenerateRepotsComponent implements OnInit {
     type:new FormControl("",Validators.required),
   })
 
-  constructor(public userSer:UserService) { }
+  constructor(public userSer:UserService,public router:Router) { }
 
   ngOnInit(): void {
   }
+
+  backToAdmin(){
+    this.router.navigateByUrl("adminLoggedIn",{ skipLocationChange: true });
+  }
+
+
   genReport(){
     let request = this.reportForm.value
     if(request.type=="daily"){

@@ -17,7 +17,7 @@
             <input type="submit" value="Get Report" [disabled]="!reportForm.valid">
             <input type="reset" value="Clear">
         </form>
-        <button><a routerLink="/admin">back to admin page</a></button>
+        <button><a (click)="backToAdmin()">back to admin page</a></button>
     </fieldset>
     {{msg}}
     <!--

@@ -29,7 +29,7 @@ export class AdminLoginComponent implements OnInit {
     this.loginSer.checkLogin(login).
     subscribe(result=>{
       if(result=="Success"){
-        this.router.navigateByUrl("admin",{ skipLocationChange: true });
+        this.router.navigateByUrl("adminLoggedIn",{ skipLocationChange: true });
       }else {
           this.msg = result;
       }
