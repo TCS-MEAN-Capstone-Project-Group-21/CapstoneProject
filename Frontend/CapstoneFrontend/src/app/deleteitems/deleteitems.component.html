@@ -7,13 +7,15 @@
               <th>Product Quantity</th>
               <th>Delete</th>
           </tr>
-          <tr *ngFor="let product of products">
-              <td>{{product.productid}}</td>
-              <td>{{product.productname}}</td>
-              <td>{{product.productprice}}</td>
-              <td>{{product.productquantity}}</td>
-             <td><input type="button" value="Delete" (click)="deleteProductInfo(product.productid)"/></td>
-          </tr>
+          <div *ngIf="products!=null">
+            <tr *ngFor="let product of products">
+                <td>{{product.productid}}</td>
+                <td>{{product.productname}}</td>
+                <td>{{product.productprice}}</td>
+                <td>{{product.productquantity}}</td>
+               <td><input type="button" value="Delete" (click)="deleteProductInfo(product.productid)"/></td>
+            </tr>
+          </div>
   </table>
   <br/>
   <span style="color:red">{{deleteMsg}}</span>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-selectitems',
@@ -9,6 +10,8 @@ import { ProductService } from '../product.service';
 })
 export class SelectitemsComponent implements OnInit {
 
+  products?:Array<Product>;
+  
   selectedItemsRef = new FormGroup({
     userid:new FormControl(), //the name is the id name from the html page of each input/selection
     productid:new FormControl(),

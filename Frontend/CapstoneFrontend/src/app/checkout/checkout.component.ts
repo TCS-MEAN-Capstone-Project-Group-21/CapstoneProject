@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-checkout',
@@ -10,6 +11,7 @@ export class CheckoutComponent implements OnInit {
 
   funds?:Number;
   checkoutMsg?:string; 
+  products?:Array<Product>;
   constructor(public productItems:ProductService) { }
 
 

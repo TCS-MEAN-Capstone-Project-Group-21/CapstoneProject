@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-deleteitems',
@@ -20,7 +21,8 @@ export class DeleteitemsComponent implements OnInit {
     //totalproductamount:new FormControl()
   });
 
-  deleteMsg?:string; 
+  deleteMsg?:string;
+  products?:Array<Product>;
 
   constructor(public productItems:ProductService) { }
 
