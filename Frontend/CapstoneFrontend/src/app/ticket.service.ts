@@ -15,4 +15,9 @@ export class TicketService {
     {responseType:'text'});
   }
 
+  getTickets():Observable<any>{
+    return this.http.get("http://localhost:9090/api/ticket/getTicket",
+    {responseType:'json'});
+  }
+
 }
