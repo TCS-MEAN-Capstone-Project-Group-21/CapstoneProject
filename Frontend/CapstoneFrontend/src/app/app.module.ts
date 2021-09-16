@@ -7,6 +7,7 @@ import { FundsComponent } from './user/funds/funds/funds.component';
 import { OrderStatusComponent } from './user/order-status/order-status/order-status.component';
 import { EditProfileComponent } from './user/edit-profile/edit-profile/edit-profile.component';
 import { SignInComponent } from './Employee/sign-in/sign-in.component';
+import { UserComponent } from './user/user/user.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SignInComponent } from './Employee/sign-in/sign-in.component';
     FundsComponent,
     OrderStatusComponent,
     EditProfileComponent,
-    SignInComponent
+    SignInComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
