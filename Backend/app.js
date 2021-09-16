@@ -9,22 +9,22 @@ let userRouter = require("./router/user.router")
 let productRouter = require("./router/product.router");
 let employeeRouter = require("./router/employee.router");
 let ticketRouter = require("./router/ticket.router");
+let adminRouter = require("./router/admin.router");
+
+
 
 //add middleware
 app.use(cors());
-
-//bodyparser is depricated replaced by express.urlencoded
 app.use(bodyParser.json())
-//app.use(express.urlencoded({ extended: true }));
 
 //Database URL
 let url = "mongodb://localhost:27017/mylib"
-//!!!!---- Replace with AWS Database URL ----!!!!
 
 // connect the database 
 mongoose.connect(url).then(res=>console.log("connected")).catch(error=>console.log(error));
 
 
+app.use("/api/admin",adminRouter)
 app.use("/api/product",routerProduct);
 app.use("/api/user",userRouter);
 app.use("/api/product", productRouter);

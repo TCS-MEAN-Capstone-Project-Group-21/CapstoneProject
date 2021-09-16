@@ -2,7 +2,13 @@ let mongoose = require("mongoose");
 
 mongoose.pluralize(null);
 
-let employeeSchema = mongoose.Schema({
+let employeeSchema = mongoose.Schema({    
+    _id:{type:Number, require:true},
+    email:{type:String, unique:true},
+    fname:{type:String},
+    mname:{type:String},
+    lname:{type:String},
+    password:{type:String, require:true, select:false},
     Products:{type:String, unique:true},
     quantity:{type:String, unique:true},
 
