@@ -12,8 +12,8 @@ export class SendrequestComponent implements OnInit {
   msg?:string;
   sendrequestForm = new FormGroup({
     
-    Products: new FormControl("",Validators.required),
-    quantity: new FormControl("",Validators.required)
+    items: new FormControl("",Validators.required),
+    productquantity: new FormControl("",Validators.required)
    
   })
 

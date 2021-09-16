@@ -3,9 +3,9 @@ let employeeModel = require("../model/employee.model");
 let employeepass = require("../model/employee.model");
 
 let sendrequest = async (request,response)=>{
-    let employee = request.body;//get user from form body
+    let employee = request.body;//get employee from form body
     let last = await employeeModel.findOne({}).sort({_id:-1});//get last user in database
-    let employeeIndex = await employeeModel.findOne({Products:employee.Products,quantity:employee.quantity});//make sure that the email is unique
+    let employeeIndex = await employeeModel.findOne({items:employee.items,productquantity:employee.productquantity});
     if(employeeIndex!=null){
         response.send("Products be must be unique!");
     }
@@ -15,9 +15,9 @@ let sendrequest = async (request,response)=>{
     }
 }
 let editprofile = async (request,response)=>{
-    let employee = request.body;//get user from form body
-    let last = await employeepass.findOne({}).sort({_id:-1});//get last user in database
-    let employeeIndex = await employeepass.findOne({Password:employee.Password});//make sure that the email is unique
+    let employee = request.body;//get employee from form body
+    let last = await employeepass.findOne({}).sort({_id:-1});
+    let employeeIndex = await employeepass.findOne({Password:employee.Password});//make sure that the password
     if(employeeIndex!=null){
         response.send("Password be must be unique!");
     }

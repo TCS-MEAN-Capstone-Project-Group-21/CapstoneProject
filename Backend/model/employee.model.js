@@ -9,13 +9,13 @@ let employeeSchema = mongoose.Schema({
     mname:{type:String},
     lname:{type:String},
     password:{type:String, require:true, select:false},
-    Products:{type:String, unique:true},
-    quantity:{type:String, unique:true},
+    items:{type:String, unique:true},
+    productquantity:{type:String, unique:true},
 
     
 })
 let employeeDetails = mongoose.Schema({
-    password:{type:String, unique:true}
+    password:{type:String}
     
     
 })
