@@ -19,17 +19,15 @@
 </div> -->
 
 <div>
-    <form>
-        <div class="form-group">
+    <form [formGroup]="ticketRef" (ngSubmit)="sendTicket()">
         <h2>Raise Ticket</h2>
           <label for="">User ID</label>
-          <input type="text" class="form-control" name="useridticket" id="useridticket" placeholder="">
+          <input type="text" formControlName="useridticket" id="useridticket" placeholder="Your user ID..">
         </div>
-        <div class="form-group">
           <label for="">Reason for Ticket</label>
           <br/>
-          <textarea class="form-control" name="usermessageticket" id="usermessageticket" rows="5"></textarea>
+          <textarea formControlName="usermessageticket" id="usermessageticket" rows="5"></textarea>
         </div><br/>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Raise Ticket</button>
+        <input type="submit" value="Raise Ticket"/>
       </form>
 </div>
