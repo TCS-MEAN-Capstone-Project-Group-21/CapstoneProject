@@ -17,9 +17,9 @@ export class ProductService {
   }
 
     // call get method can convert all json data into customer array object. 
-    retrieveAllProductsInfo():Observable<any>{
-      return this.http.get<any>("http://localhost:9090/allProductDetails");
-    }
+  retrieveAllProductsInfo():Observable<any>{
+    return this.http.get<any>("http://localhost:9090/allProductDetails");
+  }
 
   deleteProductInfo(productid:any):Observable<any> {
     return this.http.delete<any>("http://localhost:9090/api/product/deleteProductInfo/"+productid);
