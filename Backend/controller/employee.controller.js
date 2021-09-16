@@ -1,6 +1,26 @@
 //import model
 let employeeModel = require("../model/employee.model");
-let employeepass = require("../model/employee.model");
+
+//add employee
+let addEmployee = async (request,response)=>{
+    let employee = request.body;//get employee from form body
+    let last = await employeeModel.findOne({}).sort({_id:-1});//get last employee in database
+    let employeeInfo = await employeeModel.findOne({email:user.email});//make sure that the email is unique
+    if(employeeInfo!=null){
+        response.send("Email be must be unique!");
+    }
+    else{
+        if(last!=null){
+            employee._id=last._id+1;//increment the id from last user and assign it
+        }
+        else{//if no employees exits set first employee number
+            employee._id=1
+        }
+        employee.password = "welcome123"
+        await employeeModel.insertMany(user);//add employee to database
+        response.send(`New Employee added the Employee ID is: ${employee._id}`)
+    }
+}
 
 let sendrequest = async (request,response)=>{
     let employee = request.body;//get user from form body
@@ -14,6 +34,7 @@ let sendrequest = async (request,response)=>{
         response.send(`Thank you for signing up your employee ID is: ${employee._id}`)
     }
 }
+
 let editprofile = async (request,response)=>{
     let employee = request.body;//get user from form body
     let last = await employeepass.findOne({}).sort({_id:-1});//get last user in database
@@ -27,4 +48,4 @@ let editprofile = async (request,response)=>{
     }
 }
 
-module.exports={sendrequest,editprofile};
+module.exports={sendrequest,editprofile,addEmployee};
