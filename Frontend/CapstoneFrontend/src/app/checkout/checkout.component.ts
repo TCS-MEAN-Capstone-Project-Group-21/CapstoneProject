@@ -9,7 +9,9 @@ import { Product } from '../product';
 })
 export class CheckoutComponent implements OnInit {
 
-  funds?:Number;
+  leftOverAmount?:number;
+  totalCartCost?:Number;
+  totalFunds?:Number;
   checkoutMsg?:string; 
   products?:Array<Product>;
   constructor(public productItems:ProductService) { }
@@ -22,6 +24,8 @@ export class CheckoutComponent implements OnInit {
     //deduct the amount of money present in the user's funds
     // if user does not have sufficient amount, user will get an error message
     // if user has sufficient amount, user will have their order placed ("your order has been placed")
+    this.leftOverAmount=(this.totalFunds? - parseFloat(this.totalCartCost?));
+
 
   }
 
