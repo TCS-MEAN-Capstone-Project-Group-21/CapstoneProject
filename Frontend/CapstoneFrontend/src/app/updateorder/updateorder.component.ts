@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class UpdateorderComponent implements OnInit {
   name = 'Progress Bar';
 
-  public counts = ["Recieved","In process","Shipped","Out for Delivery",
+  public counts = ["Recieved","In Process","Shipped","Out for Delivery",
   "Delivered"];
-  public orderStatus = "Shipped"
+  public orderStatus = "In Process"
 
   constructor() { }
 
