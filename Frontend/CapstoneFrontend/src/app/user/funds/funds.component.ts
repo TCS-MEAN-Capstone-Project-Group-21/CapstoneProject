@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-funds',
@@ -9,27 +8,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FundsComponent implements OnInit {
 
-  currentFunds ? = 0;
-  id = sessionStorage.getItem('curUserId');
-  constructor(public userSer: UsersService) { }
+  accountNumber?:Number;
+  curr_funds?:Number;
+
+  constructor(public user_service:UserService) { }
 
   ngOnInit(): void {
-    this.userSer.retrieveUserById(this.id).subscribe(result => {
-      this.currentFunds = result[0].funds;
-    }
-      );
+
+    let curr_userName:any = sessionStorage.getItem('userName')
+    let resp = this.user_service.getUserByUsername(curr_userName)
+    resp.subscribe( (response:any) =>{
+      let user_details = response['user'][0]
+      console.log(user_details)
+      this.curr_funds = user_details['funds']
+      this.accountNumber = user_details['accountNumber']
+    })
   }
-  addFunds(userRef: any): void{
-    console.log("adding funds");
-    console.log(userRef);
-    console.log(this.id);
-    this.userSer.updateFunds(userRef, this.id);
-    this.userSer.retrieveUserById(this.id).subscribe(result => {
-      console.log("result" + result[0]);
-      this.currentFunds = result[0].funds;
+
+  addFunds(fundsAmnt:any){
+    let fundsInput:any = document.getElementById('fundsInput')
+    fundsInput.value = ""
+
+    console.log("Here are the inputted funds:")
+    console.log(fundsAmnt)
+  
+    if (fundsAmnt > 0) {
+      let curr_userName:any = sessionStorage.getItem('userName')
+      let funds_info = {
+        userName:curr_userName,
+        funds:fundsAmnt
+      }
+  
+      this.user_service.addFunds(funds_info)
+      .subscribe((res:any)=>{
+        let user_details = res['user']
+        console.log(user_details)
+        this.curr_funds = user_details['funds']
+        alert("Funds have been updated")
+      })
+    } else {
+      alert("Can't deduct from funds")
     }
-      );
-      setTimeout(function() { location.reload(); }, 500);
+
   }
 
 }

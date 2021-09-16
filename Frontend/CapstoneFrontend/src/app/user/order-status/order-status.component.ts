@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from 'src/app/model.order';
-import { OrderService } from 'src/app/order.service';
-
+import { OrdersService } from 'src/app/orders.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-order-status',
@@ -9,14 +8,25 @@ import { OrderService } from 'src/app/order.service';
   styleUrls: ['./order-status.component.css']
 })
 export class OrderStatusComponent implements OnInit {
-  orders?: Array<Order>;
-  id = sessionStorage.getItem('curUserId');
-  constructor(public orderSer: OrderService) { }
+
+  orders?:any;
+
+  constructor(public user_service:UserService,public order_service:OrdersService) { }
 
   ngOnInit(): void {
-    this.orderSer.getOrdersByUserID(this.id).subscribe(result => {
-      this.orders = result;
-    });
+    let userDetails = {
+      id:sessionStorage.getItem('userName')
+    }
+
+    this.order_service.getUserOrders(userDetails)
+    .subscribe((res:any)=>{
+      console.log("In subscribe")
+      console.log(res)
+
+      this.orders = res["order"]
+      
+    })
+
   }
 
 }
