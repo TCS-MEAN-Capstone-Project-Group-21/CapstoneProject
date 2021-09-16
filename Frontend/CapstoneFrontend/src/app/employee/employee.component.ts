@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor() { }
+  empid:number=0;
+
+  constructor(public router:Router,public activateRoute:ActivatedRoute,) { }
 
   ngOnInit(): void {
+    //this.activateRoute.params.subscribe(data=>this.empid=data.empid)
   }
 
 }
