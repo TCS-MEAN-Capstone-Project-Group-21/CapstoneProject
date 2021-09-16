@@ -22,6 +22,12 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 import { SendrequestComponent } from './sendrequest/sendrequest.component';
 import { UnlockuserComponent } from './unlockuser/unlockuser.component';
 import { UpdateorderComponent } from './updateorder/updateorder.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AddProductsComponent } from './add-products/add-products.component';
+import { DeleteProductsComponent } from './delete-products/delete-products.component';
+import { UpdateProductsComponent } from './update-products/update-products.component';
+import { ViewRequestsComponent } from './view-requests/view-requests.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,13 @@ import { UpdateorderComponent } from './updateorder/updateorder.component';
     EditprofileComponent,
     SendrequestComponent,
     UnlockuserComponent,
-    UpdateorderComponent
+    UpdateorderComponent,
+    AdminComponent,
+    AdminLoginComponent,
+    AddProductsComponent,
+    DeleteProductsComponent,
+    UpdateProductsComponent,
+    ViewRequestsComponent
   ],
   imports: [
     BrowserModule,
