@@ -2,6 +2,14 @@
 let employeeModel = require("../model/employee.model");
 
 
+module.exports.getAllraisedtickets = (req,res,next)=>{
+    employee.find((err,_raisetickects)=>{
+        if(err) throw err;
+      res.send(raisetickect);
+    })
+};
+
+
 //add employee
 let addEmployee = async (request,response)=>{
     let employee = request.body;//get employee from form body
@@ -50,5 +58,6 @@ let editprofile = async (request,response)=>{
     }
 }
 
-module.exports={editprofile,addEmployee,
+
+module.exports={editprofile,addEmployee,unlockuser,
     deleteEmployee};

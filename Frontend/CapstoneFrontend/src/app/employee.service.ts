@@ -12,6 +12,11 @@ export class EmployeeService {
   
   constructor(public http:HttpClient) { }
 
+  getUserunlock():Observable<any>{
+    return this.http.get("http://localhost:9090/api/user/raiseticket",
+    {responseType:'json'});
+  }
+
 
   addNewEmployee(employee:Employee):Observable<any>{
     return this.http.post("http://localhost:9090/api/employee/addEmployee",employee,

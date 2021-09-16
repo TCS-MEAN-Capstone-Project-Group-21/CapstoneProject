@@ -7,6 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  updateUser(id: any, editUser: User) {
+    throw new Error('Method not implemented.');
+  }
+  getUserById(id: any) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(public http:HttpClient) { }
 
