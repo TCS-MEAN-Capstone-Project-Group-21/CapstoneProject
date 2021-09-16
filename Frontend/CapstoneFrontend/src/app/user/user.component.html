@@ -10,4 +10,12 @@
               </svg></a></li>
         </ul>
     </div>
+    <div class="container" *ngFor="let product of data" >
+        <div class="card col-4" (click)="addToCart(product.id)">
+            <p>{{product.name}}</p>
+            ${{product.price}}
+        </div>
+    </div>
+    
+    
 </div>
