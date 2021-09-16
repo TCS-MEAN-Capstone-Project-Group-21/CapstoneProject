@@ -10,7 +10,7 @@ let productRouter = require("./router/product.router");
 let employeeRouter = require("./router/employee.router");
 let ticketRouter = require("./router/ticket.router");
 let adminRouter = require("./router/admin.router");
-
+let requestRouter = require("./router/request.router")
 
 
 //add middleware
@@ -30,5 +30,6 @@ app.use("/api/user",userRouter);
 app.use("/api/product", productRouter);
 app.use("/api/employee",employeeRouter);
 app.use("/api/ticket",ticketRouter);
+app.use("/api/request",requestRouter);
 
 app.listen(9090, () => console.log("Server running on port number 9090"))

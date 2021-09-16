@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Order } from '../order';
-import { UserService } from '../user.service';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-generate-repots',

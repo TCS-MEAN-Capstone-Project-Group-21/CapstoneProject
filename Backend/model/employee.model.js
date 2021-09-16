@@ -7,9 +7,7 @@ let employeeSchema = mongoose.Schema({
     email:{type:String, unique:true},
     fname:{type:String},
     lname:{type:String},
-    password:{type:String, require:true, select:false},
-    items:{type:String, unique:true},
-    productquantity:{type:String, unique:true},
+    password:{type:String, require:true, select:false}
 })
 
 
