@@ -6,6 +6,7 @@ let displayUsers = async (request,response)=>{
     response.send(users);
 }
 
+//user Registration
 let signUp = async (request,response)=>{
     let user = request.body;//get user from form body
     let last = await userModel.findOne({}).sort({_id:-1});//get last user in database
@@ -27,6 +28,7 @@ let signUp = async (request,response)=>{
     }
 }
 
+//user Login
 let signIn = async (request,response)=>{
     let user = request.body;
     let userInfo = await userModel.findOne({_id:user._id});

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminComponent } from './admin/admin.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { EmployeeComponent } from './employee/employee.component';
@@ -15,6 +17,8 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [{path:"", component:MainComponent},
 {path:"user/:userid",component:UserComponent},
+{path:"adminLogin",component:AdminLoginComponent},
+{path:"admin",component:AdminComponent},
 {path:"login",component:LoginComponent},
 {path:"signup",component:SignupComponent},
 {path:"sendrequest",component:SendrequestComponent},
