@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-deleteitems',
@@ -23,10 +24,12 @@ export class DeleteitemsComponent implements OnInit {
 
   deleteMsg?:string;
   products?:Array<Product>;
+  productID?:number;
 
-  constructor(public productItems:ProductService) { }
+  constructor(public productItems:ProductService,public activateRoute:ActivatedRoute,public router:Router) { }
 
   ngOnInit(): void {
+    this.activateRoute.params.subscribe(data=>this.productID=data.productid);
   }
 
   getAllItems(){
@@ -36,7 +39,6 @@ export class DeleteitemsComponent implements OnInit {
   }
 
   deleteProductInfo(productid:any){
-    //console.log(cid);
     this.productItems.deleteProductInfo(productid).subscribe(result=>{
       this.deleteMsg=result.msg;
       this.getAllItems();
