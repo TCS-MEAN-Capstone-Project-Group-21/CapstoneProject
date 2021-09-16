@@ -7,8 +7,7 @@ let productSchema = mongoose.Schema({
     productid:{type:Number, require:true},
     productname:{type:String},
     productprice:{type:Number},
-    productquantity:{type:Number},
-    totalProductAmount:{type:Number}
+    productquantity:{type:Number}
 
 })
 
