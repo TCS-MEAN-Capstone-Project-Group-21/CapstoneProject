@@ -9,8 +9,8 @@ export class RequestService {
   http: any;
 
   constructor() { }  
-  sendRequest():Observable<any>{
-    return this.http.get("http://localhost:9090/api/employee/sendRequest",
+  sendRequest(request:Request):Observable<any>{
+    return this.http.post("http://localhost:9090/api/employee/sendRequest",request,
     {responseType:'text'});
   }
 }

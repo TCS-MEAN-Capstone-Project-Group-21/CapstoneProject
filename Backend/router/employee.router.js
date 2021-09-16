@@ -7,7 +7,6 @@ let employeeController = require("../controller/employee.controller");
 
 router.post("/addEmployee",employeeController.addEmployee);
 router.post("/deleteEmployee",employeeController.deleteEmployee)
-router.post("/sendrequest",employeeController.sendrequest);
 router.post("/editprofile",employeeController.editprofile);
 
 
