@@ -7,7 +7,7 @@ let orderSchema = mongoose.Schema({
     userId:{type:Number, require:true},
     status:{type:String, require:true},
     cost:{type:Number, require:true},
-    items:{type:Array, require:true}
+    itemid:{type:Number, require:true}
 })
 
 let orderModel = mongoose.model("Order",orderSchema);
