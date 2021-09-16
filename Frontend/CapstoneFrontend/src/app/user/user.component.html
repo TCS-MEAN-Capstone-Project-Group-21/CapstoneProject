@@ -13,6 +13,10 @@
             <div class="card text-center" (click)="addToCart(product.id)">
                 <p>{{product.name}}</p>
                 ${{product.price}}
+                <br/>
+                Quantity: <input type="number" maxlength="4" size="4"/>
+                <br/>
+                <input type="button" value="Add Product to Cart" (click)="addToCart(product.id)"/>
             </div>
         </div>
     </div>
