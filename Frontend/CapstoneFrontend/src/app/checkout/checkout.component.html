@@ -5,7 +5,6 @@
                 <th>Product Name</th>
                 <th>Product Price</th>
                 <th>Product Quantity</th>
-                <th>Delete</th>
             </tr>
             <tr *ngFor="let product of products">
                 <td>{{product.productid}}</td>
@@ -14,10 +13,18 @@
                 <td>{{product.productquantity}}</td>
             </tr>
     </table>
+
+    <input type="button" value="Check Funds" (click)="checkFunds()"/>
     <br/>
+    <span style="color:red" id="msg"></span>
+    <br/>
+    <hr/>
     Are you sure you want to check out?
-    <input type="submit" value="Checkout" (click)="checkFunds()"/>
-    <span style="color:red">{{checkoutMsg}}</span>
+    <!--THIS BUTTON SHOULD WORK TO GO TO ORDER PAGE-->
+    <input type="submit" value="Yes" (click)=""/> 
+    <!--THIS BUTTON STAYS ON CHECKOUT PAGE-->
+    <input type="submit" value="No" (click)=""/>  
+
     <br/>
     <hr/>
     <!--ADD TOTAL AMOUNT OWED AND TOTAL AMOUNT IN FUNDS?-->

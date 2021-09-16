@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ProductService } from '../product.service';
-import { Product } from '../product';
+import { ProductService } from '../../product.service';
+import { Product } from '../../product';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -35,33 +35,53 @@ export class SelectitemsComponent implements OnInit {
   }
 
   displayItemsOnPage() {
-    // Supposing you already have queried the API and have your data
-    let data = [
-      {id: 0, name: 'Apple', price: 7.00},
-      {id: 1, name: 'Blueberry', price: 8.00},
-      {id: 2, name: 'Grape', price: 5.00},
-  ]
 
-  data.forEach(res => {
-      let card = document.createElement("div");
+    let jsonAllProducts=[
+      {productname:'Apples',productid:0,productprice:4.00},
+      {productname:'Bananas',productid:1,productprice:5.00},
+      {productname:'Oranges',productid:2,productprice:6.00}
+    ];
 
-      let id = document.createTextNode('Product ID: ' + res.id + '<br/>');
-      card.appendChild(id);
+    let body = document.querySelector('body');
+    let div = document.createElement('div');
+    let img = document.createElement('img');
+    let h5 = document.createElement('h5');
+    let p = document.createElement('p');
+    let input = document.createElement('input');
+    let a = document.createElement('a');
 
-      let name = document.createTextNode('Product Name: ' + res.name + '<br/>');
-      card.appendChild(name);
+    let divInBody = body?.append(div);
+    let imgInDiv = div.append(img);
+    let divInImg = img.append(div);
+    let h5InDiv = div.append(h5);
+    let pInh5 = h5.append(p);
+    let inputInP = p.append(input);
+    let aInInput = input.append(a);
 
-      let price = document.createTextNode('Price: ' + res.price + '<br/>');
-      card.appendChild(price);
+    a.innerHTML="";
 
-      let quantityInput = document.createTextNode('Quantity: <input type="text" maxlength="4" size="4" id="quantity"/><br/>');
-      card.appendChild(quantityInput);
+    let startDiv = `<div class="col-sm"><div class="card" style="width: 18rem;">`;
+    let imageDiv = `<img class="card-img-top" src="" alt="Card image cap">`;
+    let secondDiv = `<div class="card-body">`;
+    let middleDiv = ``;
+    let endDiv = `</div></div></div>`;
+    let wholeDivElement = ``;
 
-      let container = document.querySelector("#container");
-      container?.appendChild(card);
+    for (let i=0;i<jsonAllProducts.length;i++){
+      middleDiv += `
+      <h5 class="card-title">`+jsonAllProducts[i].productname+`</h5>`
+      + `<p class="card-text">`+jsonAllProducts[i].productid+`</p>`
+      + `<p class="card-text">`+jsonAllProducts[i].productprice+`</p>
+      Quantity: <input type="text" maxlength="4" size="4" id=""/><br/><br/>
+      <a href="#" class="btn btn-primary">Add Product</a>
+      `;
+      console.log(jsonAllProducts[i]);
+    }
 
-      document.body.appendChild(card);
-  });
+    wholeDivElement = startDiv+imageDiv+secondDiv+middleDiv+endDiv;
+    // try this in typescript
+    document.getElementById("buttontest")!.innerHTML=wholeDivElement;
+ 
   }
 
   addItemsToCart(pid:Number,prodname:string, prodcost:Number, pquan:Number) {
@@ -93,6 +113,10 @@ export class SelectitemsComponent implements OnInit {
       this.prodPrice,
       prodJson.quantity
     ]
+  }
+
+  updateItems() {
+
   }
 
 }

@@ -5,15 +5,25 @@
               <th>Product Name</th>
               <th>Product Price</th>
               <th>Product Quantity</th>
+              <th>Delete</th>
           </tr>
-          <tr *ngFor="let product of products">
-              <td>{{product.productid}}</td>
-              <td>{{product.productname}}</td>
-              <td>{{product.productprice}}</td>
-              <td>{{product.productquantity}}</td>
-          </tr>
+          <div *ngIf="products!=null">
+            <tr *ngFor="let product of products">
+                <td>{{product.productid}}</td>
+                <td>{{product.productname}}</td>
+                <td>{{product.productprice}}</td>
+                <td>{{product.productquantity}}</td>
+                <td><input type="button" value="Delete" (click)="deleteProductInfo(product.productid)"/></td>
+            </tr>
+          </div>
   </table>
   <br/>
-  
-</div>
+  <span style="color:red">{{deleteMsg}}</span>
+  <br/>
+  <hr/>
+  <br/>
+  <!--<input type="button" value="Checkout Cart" (click)=""/>-->
+  <br/>
+  <a href="#">Checkout Cart</a>
+  <br/>
 

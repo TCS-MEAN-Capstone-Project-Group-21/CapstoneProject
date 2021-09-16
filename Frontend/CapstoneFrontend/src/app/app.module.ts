@@ -10,9 +10,9 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RaiseticketComponent } from './raiseticket/raiseticket.component';
-import { SelectitemsComponent } from './selectitems/selectitems.component';
+import { SelectitemsComponent } from './viewitems/selectitems/selectitems.component';
 import { ViewitemsComponent } from './viewitems/viewitems.component';
-import { DeleteitemsComponent } from './deleteitems/deleteitems.component';
+import { DeleteitemsComponent } from './viewitems/deleteitems/deleteitems.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
@@ -22,6 +22,12 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 import { SendrequestComponent } from './sendrequest/sendrequest.component';
 import { UnlockuserComponent } from './unlockuser/unlockuser.component';
 import { UpdateorderComponent } from './updateorder/updateorder.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AddProductsComponent } from './add-products/add-products.component';
+import { DeleteProductsComponent } from './delete-products/delete-products.component';
+import { UpdateProductsComponent } from './update-products/update-products.component';
+import { ViewRequestsComponent } from './view-requests/view-requests.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,13 @@ import { UpdateorderComponent } from './updateorder/updateorder.component';
     EditprofileComponent,
     SendrequestComponent,
     UnlockuserComponent,
-    UpdateorderComponent
+    UpdateorderComponent,
+    AdminComponent,
+    AdminLoginComponent,
+    AddProductsComponent,
+    DeleteProductsComponent,
+    UpdateProductsComponent,
+    ViewRequestsComponent
   ],
   imports: [
     BrowserModule,
