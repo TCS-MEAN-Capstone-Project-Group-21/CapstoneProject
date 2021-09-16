@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-update-products',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateProductsComponent implements OnInit {
 
+  updateForm = new FormGroup({
+    
+  })
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  updateProduct(){
+    
   }
 
 }
