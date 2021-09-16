@@ -13,7 +13,7 @@ import { UpdateorderComponent } from './updateorder/updateorder.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [{path:"", component:MainComponent},
-{path:"user",component:UserComponent},
+{path:"user/:userid",component:UserComponent},
 {path:"login",component:LoginComponent},
 {path:"signup",component:SignupComponent},
 {path:"sendrequest",component:SendrequestComponent},

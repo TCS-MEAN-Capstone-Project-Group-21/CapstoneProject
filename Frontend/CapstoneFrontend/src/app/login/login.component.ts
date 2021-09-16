@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.loginSer.checkLoginDetails(login).
     subscribe(result=>{
       if(result=="Success"){
-        this.router.navigate(["user"]);
+        this.router.navigate(["user",login._id]);
       }else {
           this.msg = result;
       }

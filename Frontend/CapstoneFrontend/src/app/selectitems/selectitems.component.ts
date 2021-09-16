@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-selectitems',
@@ -11,6 +12,7 @@ import { Product } from '../product';
 export class SelectitemsComponent implements OnInit {
 
   products?:Array<Product>;
+  userID?:number;
   
   selectedItemsRef = new FormGroup({
     userid:new FormControl(), //the name is the id name from the html page of each input/selection
@@ -21,9 +23,10 @@ export class SelectitemsComponent implements OnInit {
     //totalproductamount:new FormControl()
   });
 
-  constructor(public selectedItems:ProductService) { } // DI for Selected Items
+  constructor(public selectedItems:ProductService,public activateRoute:ActivatedRoute,public router:Router) { } // DI for Selected Items
 
   ngOnInit(): void {
+    this.activateRoute.params.subscribe(data=>this.userID=data.userid);
   }
 
   addItemsToCart(prodname:string, prodcost:Number, prodquan:Number) {
