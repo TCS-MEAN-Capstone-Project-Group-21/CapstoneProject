@@ -4,6 +4,7 @@ let mongoose = require("mongoose");
 let cors = require("cors");
 let bodyParser = require("body-parser");
 let app = express();
+let routerProduct = require("./router/product.router");
 let userRouter = require("./router/user.router")
 let productRouter = require("./router/product.router");
 
@@ -21,6 +22,8 @@ let url = "mongodb://localhost:27017/mylib"
 // connect the database 
 mongoose.connect(url).then(res=>console.log("connected")).catch(error=>console.log(error));
 
+
+app.use("/api/product",routerProduct);
 app.use("/api/user",userRouter);
 app.use("/api/product", productRouter);
 

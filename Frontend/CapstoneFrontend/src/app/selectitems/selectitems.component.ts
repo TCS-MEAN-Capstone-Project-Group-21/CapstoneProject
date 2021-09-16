@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-selectitems',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectitemsComponent implements OnInit {
 
-  constructor() { }
+  selectedItemsRef = new FormGroup({
+    userid:new FormControl(), //the name is the id name from the html page of each input/selection
+    productid:new FormControl(),
+    productname:new FormControl(),
+    productprice:new FormControl(),
+    productquantity:new FormControl()
+    //totalproductamount:new FormControl()
+  });
+
+  constructor(public selectedItems:ProductService) { } // DI for Selected Items
 
   ngOnInit(): void {
   }
@@ -16,6 +27,10 @@ export class SelectitemsComponent implements OnInit {
     //obtain name, cost and quantity, calculate total amount
     // send info to database (product.model.js)
 
+  }
+
+  addToCart(){
+    let selectItems = this.selectedItemsRef.value;
   }
 
 }
