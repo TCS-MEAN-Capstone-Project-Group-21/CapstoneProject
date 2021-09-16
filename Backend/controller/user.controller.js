@@ -1,6 +1,11 @@
 //import model
 let userModel = require("../model/user.model");
 
+let displayUsers = async (request,response)=>{
+    let users = await userModel.find()
+    response.send(users);
+}
+
 let signUp = async (request,response)=>{
     let user = request.body;//get user from form body
     let last = await userModel.findOne({}).sort({_id:-1});//get last user in database
@@ -42,4 +47,4 @@ let signIn = async (request,response)=>{
     }
 }
 
-module.exports={signIn,signUp};
+module.exports={signIn,signUp,displayUsers};

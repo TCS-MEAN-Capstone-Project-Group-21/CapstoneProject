@@ -4,6 +4,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { GenerateRepotsComponent } from './generate-repots/generate-repots.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { SendrequestComponent } from './sendrequest/sendrequest.component';
@@ -22,7 +23,9 @@ const routes: Routes = [{path:"", component:MainComponent},
 {path:"editprofile",component:EditprofileComponent},
 {path:"employee",component:EmployeeComponent},
 {path:"addEmployee",component:AddEmployeeComponent},
-{path:"deleteEmployee",component:DeleteEmployeeComponent}
+{path:"deleteEmployee",component:DeleteEmployeeComponent},
+{path:"adminReport",component:GenerateRepotsComponent}
+
 ];
 
 @NgModule({

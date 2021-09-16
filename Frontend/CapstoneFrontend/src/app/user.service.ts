@@ -10,7 +10,11 @@ export class UserService {
 
   constructor(public http:HttpClient) { }
 
-  
+  getUser():Observable<any>{
+    return this.http.get("http://localhost:9090/api/user/displayUsers",
+    {responseType:'json'});
+  }
+
   checkLoginDetails(login:User):Observable<any>{
     return this.http.post("http://localhost:9090/api/user/signIn",login,
     {responseType:'text'});
