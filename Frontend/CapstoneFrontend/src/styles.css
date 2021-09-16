@@ -20,8 +20,8 @@ body {
   float: left;
 }
 
-.center li {
-  float: center;
+.right li {
+  float: right;
 }
 
 .menu li a {
@@ -31,6 +31,7 @@ body {
   padding: 14px 16px;
   text-decoration: none;
 }
+
 li a:hover {
   background-color: #111;
 }
