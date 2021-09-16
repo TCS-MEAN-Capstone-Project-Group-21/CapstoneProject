@@ -1,0 +1,23 @@
+<div class="text-center">
+    <h3>Send Request</h3>
+
+    <form [formGroup]="sendrequestForm" (ngSubmit)="createsend()">
+<label>Products</label>
+<select formControlName="Products"><option>select</option>
+<option >Rice</option>
+<option>oil</option>
+<option>Beans</option>
+<option>Seeds</option>
+<option>Bread</option>
+<option>Cheese</option>
+<option>Butter</option>
+<option>Eggs</option>
+<option>Milk</option>
+
+</select>
+
+<label>quantity</label>
+<input type="text" id="quantity" formControlName="quantity">
+<input type="submit" value="Submit" [disabled]="!sendrequestForm.valid">
+</form>
+</div>

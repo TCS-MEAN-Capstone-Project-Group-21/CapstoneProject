@@ -7,6 +7,7 @@ let app = express();
 let routerProduct = require("./router/product.router");
 let userRouter = require("./router/user.router")
 let productRouter = require("./router/product.router");
+let employeeRouter = require("./router/employee.router");
 
 //add middleware
 app.use(cors());
@@ -26,5 +27,6 @@ mongoose.connect(url).then(res=>console.log("connected")).catch(error=>console.l
 app.use("/api/product",routerProduct);
 app.use("/api/user",userRouter);
 app.use("/api/product", productRouter);
+app.use("/api/employee",employeeRouter);
 
 app.listen(9090, () => console.log("Server running on port number 9090"))

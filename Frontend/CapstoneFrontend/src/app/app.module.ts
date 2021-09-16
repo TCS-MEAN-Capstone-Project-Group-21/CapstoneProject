@@ -17,6 +17,11 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { GenerateRepotsComponent } from './generate-repots/generate-repots.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { SendrequestComponent } from './sendrequest/sendrequest.component';
+import { UnlockuserComponent } from './unlockuser/unlockuser.component';
+import { UpdateorderComponent } from './updateorder/updateorder.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { GenerateRepotsComponent } from './generate-repots/generate-repots.compo
     CheckoutComponent,
     AddEmployeeComponent,
     DeleteEmployeeComponent,
-    GenerateRepotsComponent
+    GenerateRepotsComponent,
+    EmployeeComponent,
+    EditprofileComponent,
+    SendrequestComponent,
+    UnlockuserComponent,
+    UpdateorderComponent
   ],
   imports: [
     BrowserModule,

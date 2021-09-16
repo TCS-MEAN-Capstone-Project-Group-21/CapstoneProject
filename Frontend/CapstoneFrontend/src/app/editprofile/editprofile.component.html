@@ -1,0 +1,12 @@
+<div class="text-center">
+    <form [formGroup]="editForm" (ngSubmit)="editemp()">
+    <h3>Edit Profile</h3>
+
+    <label>New password</label>
+    <input type="password" formControlName="password">
+    <label>Confirm New password</label>
+    <input type="password" formControlName="password" ><br/>
+
+    <input type="submit" value="Submit" [disabled]="!editForm.valid">
+</form>
+</div>
