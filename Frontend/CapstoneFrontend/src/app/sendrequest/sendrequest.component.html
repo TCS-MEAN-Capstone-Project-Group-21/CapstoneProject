@@ -3,7 +3,7 @@
 
     <form [formGroup]="sendrequestForm" (ngSubmit)="createsend()">
 <label>Products</label>
-<select formControlName="items"><option>select</option>
+<select formControlName="product"><option>select</option>
 <option >Deli & Dairy</option>
 <option>Canned & Jarred Items</option>
 <option>Bakery & Bread</option>
@@ -20,7 +20,7 @@
 </select>
 
 <label>quantity</label>
-<input type="text" id="productquantity" formControlName="productquantity">
+<input type="text" formControlName="quantity">
 <input type="submit" value="Submit" [disabled]="!sendrequestForm.valid">
 </form>
 {{msg}}

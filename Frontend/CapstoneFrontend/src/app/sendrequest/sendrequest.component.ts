@@ -11,10 +11,8 @@ export class SendrequestComponent implements OnInit {
  
   msg?:string;
   sendrequestForm = new FormGroup({
-    
-    items: new FormControl("",Validators.required),
-    productquantity: new FormControl("",Validators.required)
-   
+    product: new FormControl("",Validators.required),
+    quantity: new FormControl("",Validators.required)
   })
 
   constructor(public sendSer:RequestService) { }
@@ -25,10 +23,10 @@ export class SendrequestComponent implements OnInit {
     let request = this.sendrequestForm.value;
     console.log(request);
     this.sendSer.sendRequest(request).
-    subscribe((result: string | undefined)=>{
+    subscribe(result=>{
       this.msg = result;
     },
-      (    error: any)=>console.log(error));
+      (error:any)=>console.log(error));
     this.sendrequestForm.reset();
   }
 }
