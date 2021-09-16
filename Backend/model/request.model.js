@@ -9,5 +9,5 @@ let requestSchema = mongoose.Schema({
     quantity:{type:String}
 })
 
-let requesteModel = mongoose.model("Requests",requestSchema);
-module.exports = requesteModel
+let requestModel = mongoose.model("Requests",requestSchema);
+module.exports = requestModel
