@@ -35,25 +35,30 @@ export class SelectitemsComponent implements OnInit {
   displayItemsOnPage() {
     // Supposing you already have queried the API and have your data
     let data = [
-      {name: 'name0', description: 'description', date: 'XX/XX/XXXX'},
-      {name: 'name1', description: 'description', date: 'XX/XX/XXXX'},
-      {name: 'name2', description: 'description', date: 'XX/XX/XXXX'},
+      {id: 0, name: 'Apple', price: 7.00},
+      {id: 1, name: 'Blueberry', price: 8.00},
+      {id: 2, name: 'Grape', price: 5.00},
   ]
 
   data.forEach(res => {
       let card = document.createElement("div");
 
-      let name = document.createTextNode('Name:' + res.name + ', ');
+      let id = document.createTextNode('Product ID: ' + res.id + '<br/>');
+      card.appendChild(id);
+
+      let name = document.createTextNode('Product Name: ' + res.name + '<br/>');
       card.appendChild(name);
 
-      let description = document.createTextNode('Description:' + res.description + ', ');
-      card.appendChild(description);
+      let price = document.createTextNode('Price: ' + res.price + '<br/>');
+      card.appendChild(price);
 
-      let date = document.createTextNode('date:' + res.date);
-      card.appendChild(date);
+      let quantityInput = document.createTextNode('Quantity: <input type="text" maxlength="4" size="4" id="quantity"/><br/>');
+      card.appendChild(quantityInput);
 
       let container = document.querySelector("#container");
       container?.appendChild(card);
+
+      document.body.appendChild(card);
   });
   }
 
