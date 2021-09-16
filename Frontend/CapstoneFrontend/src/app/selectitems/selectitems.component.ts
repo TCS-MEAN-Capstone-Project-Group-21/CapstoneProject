@@ -30,6 +30,8 @@ export class SelectitemsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(data=>this.userID=data.userid);
+    this.activateRoute.params.subscribe(data=>this.prodName=data.productname);
+    this.activateRoute.params.subscribe(data=>this.prodPrice=data.productprice);
   }
 
   displayItemsOnPage() {
