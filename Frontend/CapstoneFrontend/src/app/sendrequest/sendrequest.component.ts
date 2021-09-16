@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { EmployeeService } from '../employee.service';
+import { RequestService } from '../request.service';
 
 @Component({
   selector: 'app-sendrequest',
@@ -17,14 +17,14 @@ export class SendrequestComponent implements OnInit {
    
   })
 
-  constructor(public sendSer:EmployeeService) { }
+  constructor(public sendSer:RequestService) { }
 
   ngOnInit(): void {
   }
   createsend(){
-    let user = this.sendrequestForm.value;
-    console.log(user);
-    this.sendSer.sendrequestDetails(user).
+    let request = this.sendrequestForm.value;
+    console.log(request);
+    this.sendSer.sendRequest(request).
     subscribe((result: string | undefined)=>{
       this.msg = result;
     },
