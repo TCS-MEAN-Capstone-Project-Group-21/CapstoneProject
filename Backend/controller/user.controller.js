@@ -21,6 +21,7 @@ let signUp = async (request,response)=>{
         response.send(`Thank you for signing up your user ID is: ${user._id}`)
     }
 }
+
 let signIn = async (request,response)=>{
     let user = request.body;
     let userInfo = await userModel.findOne({_id:user._id});

@@ -29,7 +29,6 @@ export class SignupComponent implements OnInit {
 
   createUser(){
     let user = this.signupForm.value;
-    console.log(user);
     this.userSer.userAccountCreate(user).
     subscribe(result=>{
       this.msg = result;

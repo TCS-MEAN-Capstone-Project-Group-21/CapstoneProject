@@ -8,6 +8,7 @@ let employeeSchema = mongoose.Schema({
     fname:{type:String},
     mname:{type:String},
     lname:{type:String},
+<<<<<<< HEAD
     password:{type:String, require:true, select:false},
     items:{type:String, unique:true},
     productquantity:{type:String, unique:true},
@@ -18,8 +19,10 @@ let employeeDetails = mongoose.Schema({
     password:{type:String}
     
     
+=======
+    password:{type:String, require:true, select:false}
+>>>>>>> e93253673a80aa66b29950bfe61c49d0407b36ef
 })
 
 let employeeModel = mongoose.model("Employee",employeeSchema);
-let employeepass = mongoose.model("Employee-editpass",employeeDetails);
-module.exports = employeeModel,employeepass
+module.exports = employeeModel
