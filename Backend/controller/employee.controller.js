@@ -2,6 +2,7 @@
 const { response } = require("express");
 let employeeModel = require("../model/employee.model");
 
+
 //add employee
 let addEmployee = async (request,response)=>{
     let employee = request.body;//get employee from form body
@@ -52,16 +53,17 @@ let sendrequest = async (request,response)=>{
 
 let editprofile = async (request,response)=>{
     let employee = request.body;//get employee from form body
-    let last = await employeepass.findOne({}).sort({_id:-1});
-    let employeeIndex = await employeepass.findOne({Password:employee.Password});//make sure that the password
+    let last = await employeeModel.findOne({}).sort({_id:-1});
+    let employeeIndex = await employeeModel.findOne({password:employee.password});//make sure that the password
     if(employeeIndex!=null){
-        response.send("Password be must be unique!");
+        response.send("Password");
     }
     else{
-        await employeepass.insertMany(employee);//add employee to database
+        await employeeModel.insertMany(employee);//add employee to database
         response.send(`Thank you for signing up your employee ID is: ${employee._id}`)
     }
 }
+
 
 module.exports={sendrequest,editprofile,addEmployee,
     deleteEmployee};

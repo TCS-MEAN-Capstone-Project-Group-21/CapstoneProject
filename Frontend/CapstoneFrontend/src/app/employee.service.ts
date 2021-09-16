@@ -30,4 +30,8 @@ export class EmployeeService {
     return this.http.post("http://localhost:9090/api/employee/editprofile",editprofile,
     {responseType:'text'});
   }
+  getUserlock():Observable<any>{
+    return this.http.get("http://localhost:9090/api/user/lockUsers",
+    {responseType:'json'});
+  }
 }

@@ -12,5 +12,7 @@ let employeeSchema = mongoose.Schema({
     productquantity:{type:String, unique:true},
 })
 
+
+
 let employeeModel = mongoose.model("Employee",employeeSchema);
 module.exports = employeeModel
