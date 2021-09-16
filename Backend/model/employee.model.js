@@ -6,7 +6,6 @@ let employeeSchema = mongoose.Schema({
     _id:{type:Number, require:true},
     email:{type:String, unique:true},
     fname:{type:String},
-    mname:{type:String},
     lname:{type:String},
     password:{type:String, require:true, select:false}
 })

@@ -7,4 +7,4 @@ let adminController = require("../controller/admin.controller")
 
 
 //export router
-module.exports={router};
+module.exports=router;

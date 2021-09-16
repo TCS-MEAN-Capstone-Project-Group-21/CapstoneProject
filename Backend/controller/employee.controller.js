@@ -5,7 +5,7 @@ let employeeModel = require("../model/employee.model");
 let addEmployee = async (request,response)=>{
     let employee = request.body;//get employee from form body
     let last = await employeeModel.findOne({}).sort({_id:-1});//get last employee in database
-    let employeeInfo = await employeeModel.findOne({email:user.email});//make sure that the email is unique
+    let employeeInfo = await employeeModel.findOne({email:employee.email});//make sure that the email is unique
     if(employeeInfo!=null){
         response.send("Email be must be unique!");
     }
@@ -17,7 +17,8 @@ let addEmployee = async (request,response)=>{
             employee._id=1
         }
         employee.password = "welcome123"
-        await employeeModel.insertMany(user);//add employee to database
+        console.log(employee);
+        await employeeModel.insertMany(employee);//add employee to database
         response.send(`New Employee added the Employee ID is: ${employee._id}`)
     }
 }
