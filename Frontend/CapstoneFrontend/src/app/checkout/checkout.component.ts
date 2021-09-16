@@ -42,6 +42,17 @@ export class CheckoutComponent implements OnInit {
     } else {
       this.checkoutMsg = 'You do not have enough funds in your account to checkout. Please add more to your funds.'
     }
+    //this.totalCartCost= this.price? * this.quantity;
+
+    //this.leftOverAmount=this.totalFunds? - parseFloat(this.totalCartCost?);
+
+    // this.leftOverAmount=this.totalFunds? - parseFloat(this.totalCartCost?);
+
+    // if(this.leftOverAmount? >= 0 ){
+    //   this.checkoutMsg = 'You have enough funds to checkout';
+    // } else {
+    //   this.checkoutMsg = 'You do not have enough funds in your account to checkout. Please add more to your funds.'
+    // }
 
   }
 
