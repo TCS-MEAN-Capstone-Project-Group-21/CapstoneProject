@@ -33,4 +33,10 @@ export class SelectitemsComponent implements OnInit {
     let selectItems = this.selectedItemsRef.value;
   }
 
+  getAllItems(){
+    this.selectedItems.retrieveAllProductsInfo().subscribe(result=> {
+      this.products=result;  // this line is where all info of each product is (variable: products [an array])
+    },error=>console.log(error));
+  }
+
 }

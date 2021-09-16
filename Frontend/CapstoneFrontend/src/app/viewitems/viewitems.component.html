@@ -1,4 +1,4 @@
-<body onload="displayTable()">
+<!-- <body onload="displayTable()">
     <nav class="navbar navbar-light bg-light">
         <span class="navbar-brand mb-0 h1">Wholesome Whole Foods User Cart Checkout</span>
     </nav>
@@ -37,4 +37,24 @@
         </span>
     </nav>
     
-</body>
+</body> -->
+
+<div>
+  <table border="1">
+          <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Product Price</th>
+              <th>Product Quantity</th>
+          </tr>
+          <tr *ngFor="let product of products">
+              <td>{{product.productid}}</td>
+              <td>{{product.productname}}</td>
+              <td>{{product.productprice}}</td>
+              <td>{{product.productquantity}}</td>
+          </tr>
+  </table>
+  <br/>
+  
+</div>
+

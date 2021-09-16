@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  funds?:Number;
+  checkoutMsg?:string; 
+  constructor(public productItems:ProductService) { }
+
 
   ngOnInit(): void {
+  }
+
+  checkFunds(){
+    //deduct the amount of money present in the user's funds
+    // if user does not have sufficient amount, user will get an error message
+    // if user has sufficient amount, user will have their order placed ("your order has been placed")
+
   }
 
 }

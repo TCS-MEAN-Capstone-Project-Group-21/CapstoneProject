@@ -1,1 +1,25 @@
-<p>checkout works!</p>
+<div>
+    <table border="1">
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Quantity</th>
+                <th>Delete</th>
+            </tr>
+            <tr *ngFor="let product of products">
+                <td>{{product.productid}}</td>
+                <td>{{product.productname}}</td>
+                <td>{{product.productprice}}</td>
+                <td>{{product.productquantity}}</td>
+            </tr>
+    </table>
+    <br/>
+    <input type="submit" value="Checkout" (click)="checkFunds()"/>
+    <span style="color:red">{{checkoutMsg}}</span>
+    <br/>
+    <hr/>
+    <!--ADD TOTAL AMOUNT OWED AND TOTAL AMOUNT IN FUNDS?-->
+    
+  </div>
+  
