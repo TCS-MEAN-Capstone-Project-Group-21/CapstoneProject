@@ -1,4 +1,5 @@
 //import model
+const { response } = require("express");
 let employeeModel = require("../model/employee.model");
 
 //add employee
@@ -21,6 +22,19 @@ let addEmployee = async (request,response)=>{
         await employeeModel.insertMany(employee);//add employee to database
         response.send(`New Employee added the Employee ID is: ${employee._id}`)
     }
+}
+
+let deleteEmployee= async(request,response)=>{
+    let employee = request.body;//get employee from form body
+    let employeeInfo = await employeeModel.findOne({_id:employee._id});//find employee based on id
+    if(employeeInfo!=null){
+        await employeeModel.deleteOne({_id:employee._id});
+        response.send(`Employee ID:${employee._id} has been terminated!`);
+    }
+    else{
+        response.send(`Employee ID:${employee._id} not found.`);
+    }
+
 }
 
 let sendrequest = async (request,response)=>{
@@ -49,4 +63,5 @@ let editprofile = async (request,response)=>{
     }
 }
 
-module.exports={sendrequest,editprofile,addEmployee};
+module.exports={sendrequest,editprofile,addEmployee,
+    deleteEmployee};

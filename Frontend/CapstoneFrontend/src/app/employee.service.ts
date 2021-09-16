@@ -17,6 +17,10 @@ export class EmployeeService {
     return this.http.post("http://localhost:9090/api/employee/addEmployee",employee,
     {responseType:'text'});
   }
+  deleteEmployee(employee:Employee):Observable<any>{
+    return this.http.post("http://localhost:9090/api/employee/deleteEmployee",employee,
+    {responseType:'text'});
+  }
 
   sendrequestDetails(sendrequest:Employee):Observable<any>{
     return this.http.post("http://localhost:9090/api/employee/sendrequest",sendrequest,

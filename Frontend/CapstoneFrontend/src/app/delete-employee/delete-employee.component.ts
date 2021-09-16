@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-delete-employee',
@@ -9,7 +10,7 @@ import { FormControl,FormGroup,Validators } from '@angular/forms';
 export class DeleteEmployeeComponent implements OnInit {
   msg?:string
 
-  constructor() { }
+  constructor(public employeeSer:EmployeeService) { }
   deleteEmployeeForm = new FormGroup({
     _id: new FormControl("",Validators.required),
   })
@@ -18,7 +19,14 @@ export class DeleteEmployeeComponent implements OnInit {
   }
 
   removeEmployee(){
-    
+    let employee = this.deleteEmployeeForm.value;
+    console.log(employee);
+    this.employeeSer.deleteEmployee(employee).
+    subscribe(result=>{
+      this.msg = result;
+    },
+    error=>console.log(error));
+    this.deleteEmployeeForm.reset();
   }
 
 }
