@@ -13,26 +13,8 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToAddEmployee(){
-    this.router.navigateByUrl("addEmployee",{ skipLocationChange: true });
-  }
-  goToDeleteEmployee(){
-    this.router.navigateByUrl("deleteEmployee",{ skipLocationChange: true });
-  }
-  goToAddProduct(){
-    this.router.navigateByUrl("addProduct",{ skipLocationChange: true });
-  }
-  goToUpdateProduct(){
-    this.router.navigateByUrl("updateProduct",{ skipLocationChange: true });
-  }
-  goToDeleteProduct(){
-    this.router.navigateByUrl("deleteProduct",{ skipLocationChange: true });
-  }
-  goToGenerateReport(){
-    this.router.navigateByUrl("adminReport",{ skipLocationChange: true });
-  }
-  goToViewRequest(){
-    this.router.navigateByUrl("viewRequest",{ skipLocationChange: true });
+  goTo(page:string){
+    this.router.navigateByUrl(page,{ skipLocationChange: true });
   }
 
 }
