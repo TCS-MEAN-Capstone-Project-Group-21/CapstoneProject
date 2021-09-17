@@ -59,5 +59,5 @@ let editprofile = async (request,response)=>{
 }
 
 
-module.exports={editprofile,addEmployee,unlockuser,
+module.exports={editprofile,addEmployee,
     deleteEmployee};
