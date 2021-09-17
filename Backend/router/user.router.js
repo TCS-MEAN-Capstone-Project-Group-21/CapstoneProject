@@ -6,6 +6,7 @@ let router = express.Router();
 let userController = require("../controller/user.controller");
 
 router.get("/displayUsers", userController.displayUsers)
+router.put("/updateFunds", userController.updateFunds)
 router.post("/signIn",userController.signIn);
 router.post("/signUp",userController.signUp);
 

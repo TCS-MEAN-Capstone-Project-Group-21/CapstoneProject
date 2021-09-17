@@ -6,6 +6,11 @@ let displayUsers = async (request,response)=>{
     response.send(users);
 }
 
+let updateFunds = async (request,response)=>{
+    let user = request.body;
+    await userModel.updateOne({_id:user._id},{$set:{funds:user.funds}})
+}
+
 //user Registration
 let signUp = async (request,response)=>{
     let user = request.body;//get user from form body
@@ -49,4 +54,4 @@ let signIn = async (request,response)=>{
     }
 }
 
-module.exports={signIn,signUp,displayUsers};
+module.exports={signIn,signUp,displayUsers,updateFunds};
