@@ -11,6 +11,7 @@ let employeeRouter = require("./router/employee.router");
 let ticketRouter = require("./router/ticket.router");
 let adminRouter = require("./router/admin.router");
 let requestRouter = require("./router/request.router")
+let orderRouter = require("./router/order.router")
 
 
 //add middleware
@@ -23,8 +24,9 @@ let url = "mongodb://localhost:27017/mylib"
 // connect the database 
 mongoose.connect(url).then(res=>console.log("connected")).catch(error=>console.log(error));
 
-
-app.use("/api/admin",adminRouter)
+//connect routers
+app.use("/api/order",orderRouter);
+app.use("/api/admin",adminRouter);
 app.use("/api/product",routerProduct);
 app.use("/api/user",userRouter);
 app.use("/api/product", productRouter);

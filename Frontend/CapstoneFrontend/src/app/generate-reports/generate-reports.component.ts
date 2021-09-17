@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Order } from '../order';
-import { UserService } from '../user/user.service';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-generate-reports',
@@ -12,17 +12,19 @@ import { UserService } from '../user/user.service';
 export class GenerateReportsComponent implements OnInit {
 
   msg?:string;
-  user=[];
+  reports:Array<Order>=[]
 
   reportForm= new FormGroup({
     type:new FormControl("",Validators.required),
+    date:new FormControl("",Validators.required),
+    userId:new FormControl(""),
+    productId:new FormControl(""),
     
   })
 
-  constructor(public userSer:UserService,public router:Router) { }
+  constructor(public orderSer:OrderService,public router:Router) { }
 
   reportType?:string;
-  reports: any 
   reportGenerated:boolean = false;
   reportEmpty:boolean = false;
 
@@ -37,16 +39,10 @@ export class GenerateReportsComponent implements OnInit {
 
   genReport(){
     let request = this.reportForm.value
-    this.userSer.getUser()
+    this.orderSer.genReports(request)
     .subscribe(result=> {
       console.log(result);
       this.reports = result;
-      this.reportGenerated = true;
-      if(this.reports.length <= 0){
-        this.reportEmpty = true;
-      }else{
-        this.reportEmpty = false;
-      }
     }, error=>console.log(error));
     this.reportForm.reset();
 

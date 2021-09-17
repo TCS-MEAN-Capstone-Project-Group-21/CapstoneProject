@@ -36,4 +36,4 @@ let findOrder = async (request,response)=>{
     response.send(result);//return result of query to front end
 }
 
-module.exports={addOrder};
+module.exports={addOrder,findOrder};
