@@ -29,4 +29,7 @@ export class ProductService {
   deleteProductInfo(productid:any):Observable<any> {
     return this.http.delete<any>("http://localhost:9090/api/product/deleteProdRoute/"+productid);
   }
+  updateProduct(pro:Product): Observable<any>{
+    return this.http.put("http://localhost:9090/api/product/updateProdRoute", pro, { responseType: 'text' });
+	  }
 }

@@ -11,19 +11,25 @@ import { UserService } from '../user/user.service';
 })
 export class GenerateRepotsComponent implements OnInit {
 
-  reports:Array<Report>=[];
   msg?:string;
   user=[];
 
   reportForm= new FormGroup({
     type:new FormControl("",Validators.required),
+    
   })
 
   constructor(public userSer:UserService,public router:Router) { }
 
+  reportType?:string;
+  reports: any 
+  reportGenerated:boolean = false;
+  reportEmpty:boolean = false;
+
   ngOnInit(): void {
   }
-
+ 
+  
   backToAdmin(){
     this.router.navigateByUrl("adminLoggedIn",{ skipLocationChange: true });
   }
@@ -31,39 +37,19 @@ export class GenerateRepotsComponent implements OnInit {
 
   genReport(){
     let request = this.reportForm.value
-    if(request.type=="daily"){
-      this.dailyReport(request);
-    }
-    else if(request.type=="weekly"){
-      this.weekReport(request);
-    }
-    else{
-      this.monthlyReport(request);
-    }
-    this.userSer.getUser().
-    subscribe(result=>{
-      this.reports=result;
-      this.msg = `${this.reports[0].fname}`;
-    },
-    error=>console.log(error));
-  }
-  dailyReport(request:any){
+    this.userSer.getUser()
+    .subscribe(result=> {
+      console.log(result);
+      this.reports = result;
+      this.reportGenerated = true;
+      if(this.reports.length <= 0){
+        this.reportEmpty = true;
+      }else{
+        this.reportEmpty = false;
+      }
+    }, error=>console.log(error));
+    this.reportForm.reset();
 
-  }
-  weekReport(request:any){
-
-  }
-  monthlyReport(request:any){
-
-  }
-  productReport(request:any){
-
-  }
-  userReport(request:any){
-
-  }
 }
 
-class Report{
-  fname?:string
 }

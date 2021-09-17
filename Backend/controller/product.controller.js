@@ -14,12 +14,11 @@ let getNewProduct = ((request,response)=>{
 
 let updateNewProduct = ((request,response)=>{
     let product = request.body
-    
     productModel.updateOne({
-        prodPrice:product.updateProdPrice
+        productid:product.prodId
         },
         {$set:
-            {prodQuantity:product.updateProdQuantity
+            {productquantity:product.updateProdQuantity,productPrice:product.productprice
         }}, 
         (err,results)=>{
         if(!err){

@@ -3,12 +3,12 @@
         <legend>Add Product</legend>
         <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
             <label>Product Name:</label>
-            <input type="text" formControlName="fname"><br>
+            <input type="text" formControlName="name"><br>
             <label>Product Price:</label>
-            <input type="number" formControlName="lname"><br>
+            <input type="number" formControlName="price"><br>
             <label>Quantity:</label>
             <input type="text" formControlName="quantity"><br>
-            <input type="submit" value="Add Product" [disabled]="!addProductForm.valid">
+            <input type="submit" value="Add Product">
             <input type="reset" value="Clear">
         </form>
         <input type=button (click)="backToAdmin()" value="back to admin page">
