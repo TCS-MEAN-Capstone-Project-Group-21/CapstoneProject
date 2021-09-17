@@ -11,7 +11,7 @@
             <input type="submit" value="Add Employee" [disabled]="!addEmployeeForm.valid">
             <input type="reset" value="Clear">
         </form>
-        <button class="btn" (click)="backToAdmin()">back to admin page</button>
+        <input type=button (click)="backToAdmin()" value="back to admin page">
     </fieldset>
     {{msg}}
 </div>

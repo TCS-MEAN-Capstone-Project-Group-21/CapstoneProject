@@ -16,6 +16,11 @@ export class ProductService {
     {responseType:'text'});
   }
 
+  addNewProduct(product:Product):Observable<any> {
+    return this.http.post("http://localhost:9090/api/product/deleteProductInfo/",product,
+    {responseType:'text'});
+  }
+
     // call get method can convert all json data into customer array object. 
   retrieveAllProductsInfo():Observable<any>{
     return this.http.get<any>("http://localhost:9090/allProductDetails");
