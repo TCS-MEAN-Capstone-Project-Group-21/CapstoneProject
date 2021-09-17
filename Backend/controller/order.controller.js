@@ -23,17 +23,17 @@ let findOrder = async (request,response)=>{
     timeEnd.setMinutes(59);
     timeEnd.setSeconds(59);
     if(query.type == "weekly"){
-        timeEnd.setDate(query.date.getDate()+6);
+        timeEnd.setDate(query.date.getDate()+6);//if the report is for a week set the end date to 6 days ahead of the start date
     }
     else if(query.type == "Monthly"){
-        timeEnd.setMonth(query.date.getMonth()+1);
+        timeEnd.setMonth(query.date.getMonth()+1);//if the report is for a month increment the month
     }
     let result = await orderModel.find({
         userId:query.userId,//where userId maches entered user Id
         items:{$in:query.productId},//where product Id is included in the items array
         date:{$gt:query.date,$lt:timeEnd}//on orders that fall between the start and end date
     })
-    response.send(result);
+    response.send(result);//return result of query to front end
 }
 
 module.exports={addOrder};
