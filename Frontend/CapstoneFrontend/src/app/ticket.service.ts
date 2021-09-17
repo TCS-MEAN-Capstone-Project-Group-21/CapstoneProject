@@ -10,8 +10,8 @@ export class TicketService {
 
   constructor(public http:HttpClient) { }
 
-  raiseTicket(ticket:Ticket):Observable<any>{
-    return this.http.post("http://localhost:9090/api/ticket/raiseTicket",ticket,
+  raiseTicket(userID:any):Observable<any>{
+    return this.http.post("http://localhost:9090/api/ticket/raiseTicket",userID,
     {responseType:'text'});
   }
 

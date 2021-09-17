@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+// need a cart class?
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +24,6 @@ export class CartService {
   }
 
   getCart():Array<number>{
-    return this.itemId;
+    return this.itemId; // only the product ID
   }
 }

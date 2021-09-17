@@ -32,9 +32,9 @@ export class RaiseticketComponent implements OnInit {
 
   // WHAT PART TO SEND TO DATABASE
   sendTicket(){
-    // this.ticketItems.raiseTicket().subscribe(result=> {
-    //   this.tickets=result;  // this line is where all info of each product is (variable: products [an array])
-    // },error=>console.log(error));
+     this.ticketItems.raiseTicket(this.userID).subscribe(result=> {
+       this.tickets=result;  // this line is where all info of each product is (variable: products [an array])
+     },error=>console.log(error));
   }
 
 }

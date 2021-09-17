@@ -33,7 +33,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   checkout(){
-
+    // add order user id, total cost, items (product), pass in to arays (item ID, item qunatity
+    // follow the order model, get it with pings to the backend 
+    //submit order, ping backend, create updated user funds (nothing from backend)
+// service request json data, pull what it needs  as json data, 
   }
 
   stay(){
