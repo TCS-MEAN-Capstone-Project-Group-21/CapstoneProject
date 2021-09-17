@@ -1,10 +1,10 @@
 <div class="wrapper fadeInDown text-center">
     <fieldset class="text-center" id="formContent" >
-        <legend>Add Product</legend>
+        <legend>Delete Product</legend>
         <form [formGroup]="deleteProductForm" (ngSubmit)="deleteProduct()">
             <label>Product ID:</label>
             <input type="number" formControlName="_id"><br>
-            <input type="submit" value="Add Product" [disabled]="!deleteProductForm.valid">
+            <input type="submit" value="Delete Product" [disabled]="!deleteProductForm.valid">
             <input type="reset" value="Clear">
         </form>
         <input type=button (click)="backToAdmin()" value="back to admin page">

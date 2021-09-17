@@ -1,6 +1,6 @@
-<div class="text-center">
-    <fieldset>
-        <legend>Login</legend>
+<div class="wrapper fadeInDown text-center">
+    <fieldset class="text-center" id="formContent" >
+        <label>Login</label>
         <form [formGroup]="loginForm" (ngSubmit)="attemptLogin()">
             <label>ID:</label>
             <input type="number" formControlName="_id"><br>
