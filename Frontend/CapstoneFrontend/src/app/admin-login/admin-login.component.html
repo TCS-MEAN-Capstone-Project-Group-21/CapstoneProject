@@ -1,7 +1,8 @@
-<div class="text-center">
-    <fieldset>
-        <legend>Login</legend>
+<div class="wrapper fadeInDown text-center">
+    <div id="formContent">
         <form [formGroup]="loginForm" (ngSubmit)="attemptLogin()">
+            <br>
+            <label>Admin Login</label><br>
             <label>ID:</label>
             <input type="number" formControlName="_id"><br>
             <label>Password:</label>
@@ -9,6 +10,6 @@
             <input type="submit" value="Login" [disabled]="!loginForm.valid">
             <input type="reset" value="Clear">
         </form>
-    </fieldset>
+    </div>
     {{msg}}
 </div>

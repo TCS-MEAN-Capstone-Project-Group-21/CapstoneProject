@@ -17,7 +17,7 @@ let addEmployee = async (request,response)=>{
             employee._id=last._id+1;//increment the id from last user and assign it
         }
         else{//if no employees exits set first employee number
-            employee._id=1
+            employee._id=1;
         }
         employee.password = "welcome123"
         console.log(employee);
@@ -52,12 +52,9 @@ let editprofile = async (request,response)=>{
     }
 }
 
-//get all the tickets
-let getTickets = async (request, response)=>{
-    let tickets = await ticketModel.find({status:"active"});
-    response.send(tickets);
-}
 
-
-module.exports={editprofile,addEmployee,getTickets,
-    deleteEmployee};
+module.exports={
+    editprofile,
+    addEmployee,
+    deleteEmployee
+};

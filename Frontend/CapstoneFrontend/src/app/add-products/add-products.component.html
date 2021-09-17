@@ -1,4 +1,5 @@
-<div class="text-center">
+<div class="wrapper fadeInDown text-center">
+    <div id="formContent">
     <fieldset>
         <legend>Add Product</legend>
         <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
@@ -14,4 +15,5 @@
         <input type=button (click)="backToAdmin()" value="back to admin page">
     </fieldset>
     {{msg}}
+    </div>
 </div>

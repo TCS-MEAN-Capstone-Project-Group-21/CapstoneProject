@@ -18,6 +18,7 @@ import { UpdateorderComponent } from './updateorder/updateorder.component';
 import { UserComponent } from './user/user.component';
 import { ViewitemsComponent } from './viewitems/viewitems.component';
 import { UpdateProductsComponent } from './update-products/update-products.component';
+import { EmployeeSignInComponent } from './employee/sign-in/sign-in.component';
 
 const routes: Routes = [{path:"", component:MainComponent},
 {path:"user/:userid",component:UserComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [{path:"", component:MainComponent},
 {path:"addProduct",component:AddProductsComponent},
 {path:"adminLoggedIn",component:AdminComponent},
 {path:"login",component:LoginComponent},
+{path:"employeeSignIn",component:EmployeeSignInComponent},
 {path:"signup",component:SignupComponent},
 {path:"deleteProduct",component:DeleteProductsComponent},
 {path:"sendrequest",component:SendrequestComponent},

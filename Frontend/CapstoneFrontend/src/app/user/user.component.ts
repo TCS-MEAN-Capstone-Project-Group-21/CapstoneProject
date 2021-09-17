@@ -25,13 +25,7 @@ export class UserComponent implements OnInit {
   data = [
     {id: 0, name: 'Apple', price: 7.00},
     {id: 1, name: 'Blueberry', price: 8.00},
-    {id: 2, name: 'Grape', price: 5.00},{id: 0, name: 'Apple', price: 7.00},
-    {id: 1, name: 'Blueberry', price: 8.00},
-    {id: 2, name: 'Grape', price: 5.00},{id: 0, name: 'Apple', price: 7.00},
-    {id: 1, name: 'Blueberry', price: 8.00},
-    {id: 2, name: 'Grape', price: 5.00},{id: 0, name: 'Apple', price: 7.00},
-    {id: 1, name: 'Blueberry', price: 8.00},
-    {id: 2, name: 'Grape', price: 5.00},]
+    {id: 2, name: 'Grape', price: 5.00}]
   //items:Data[] = []
   showCart = false
   showEdit = false

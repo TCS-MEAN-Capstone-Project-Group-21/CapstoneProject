@@ -26,9 +26,9 @@ export class AddProductsComponent implements OnInit {
   }
   
   addProduct(){
-    let employee = this.addProductForm.value;
-    console.log(employee);
-    this.productSer.addNewProduct(employee).
+    let product = this.addProductForm.value;
+    console.log(product);
+    this.productSer.addNewProduct(product).
     subscribe(result=>{
       this.msg = result;
     },
