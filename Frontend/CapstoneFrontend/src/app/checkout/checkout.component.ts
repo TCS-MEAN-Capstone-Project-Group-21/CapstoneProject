@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-checkout',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CheckoutComponent implements OnInit {
 
-  user={};
+  userid=-1;
   totalProdCost:number=0;
   leftOverAmount?:number;
   totalCartCost:number=0;
@@ -21,24 +22,28 @@ export class CheckoutComponent implements OnInit {
   pid?:number;
   price?:number;
   quantity?:number;
-  constructor(public productItems:ProductService,public activateRoute:ActivatedRoute,public router:Router) { }
+  constructor(public productItems:ProductService,public userSer:UserService,public activateRoute:ActivatedRoute,public router:Router) { }
 
 
   ngOnInit(): void {
-    this.activateRoute.params.subscribe(data=>this.totalFunds=data.userid);
+    this.activateRoute.params.subscribe(data=>this.userid=data.userid);
     this.activateRoute.params.subscribe(data=>this.pid=data.productid);
     this.activateRoute.params.subscribe(data=>this.price=data.productprice);
     this.activateRoute.params.subscribe(data=>this.quantity=data.productquantity);
+  }
+
+  checkout(){
+
+  }
+
+  stay(){
+
   }
 
   checkFunds(){
     //deduct the amount of money present in the user's funds
     // if user does not have sufficient amount, user will get an error message
     // if user has sufficient amount, user will have their order placed ("your order has been placed")
-    // this.totalCartCost= this.price? * this.quantity;
-
-    // this.leftOverAmount=this.totalFunds? - parseFloat(this.totalCartCost?);
-
     // ---  where to get the json object/array of the user's selection
     let costObj = {
       pid:this.pid,
