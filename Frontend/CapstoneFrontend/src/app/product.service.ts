@@ -17,7 +17,7 @@ export class ProductService {
   }
 
   addNewProduct(product:Product):Observable<any> {
-    return this.http.post("http://localhost:9090/api/product/addProductInfo/",product,
+    return this.http.post("http://localhost:9090/api/product/addProdRoute/",product,
     {responseType:'text'});
   }
 
@@ -27,6 +27,6 @@ export class ProductService {
   }
 
   deleteProductInfo(productid:any):Observable<any> {
-    return this.http.delete<any>("http://localhost:9090/api/product/deleteProductInfo/"+productid);
+    return this.http.delete<any>("http://localhost:9090/api/product/deleteProdRoute/"+productid);
   }
 }
