@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Employee } from './employee';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,4 +40,11 @@ export class EmployeeService {
     return this.http.get("http://localhost:9090/api/user/lockUsers",
     {responseType:'json'});
   }
+  
+  // getTickets():Observable<any>{
+  //   return this.http.get("http://localhost:9090/api/raiseticket/getTicket",raiseticket
+  //   {responseType:'json'});
+  // }
 }
+
+

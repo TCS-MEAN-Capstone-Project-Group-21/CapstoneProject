@@ -58,6 +58,12 @@ let editprofile = async (request,response)=>{
     }
 }
 
+//get all the tickets
+let getTickets = async (request, response)=>{
+    let tickets = await ticketModel.find({status:"active"});
+    response.send(tickets);
+}
 
-module.exports={editprofile,addEmployee,
+
+module.exports={editprofile,addEmployee,getTickets,
     deleteEmployee};
