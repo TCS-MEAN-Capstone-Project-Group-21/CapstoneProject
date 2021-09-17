@@ -1,6 +1,6 @@
-<div class="text-center">
-    <fieldset>
-        <legend>Add Employee</legend>
+<div class="wrapper fadeInDown text-center">
+    <fieldset class="text-center" id="formContent" >
+        <label>Add Employee</label>
         <form [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()">
             <label>First Name:</label>
             <input type="text" formControlName="fname"><br>

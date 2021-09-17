@@ -21,7 +21,7 @@ export class EmployeeSignInComponent implements OnInit {
    
     
     this.empSer.getEmployeeByID(id).subscribe(result => {
-      if (result[0]._id === id && result[0].pass === "Welcome123") {
+      if (result[0]._id === id && result[0].pass === "welcome123") {
         alert("Change Password From Default");
         this.displayChangePass();
       } 

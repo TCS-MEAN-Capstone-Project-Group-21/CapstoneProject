@@ -1,6 +1,6 @@
-<div>
-    <fieldset class="text-center">
-        <legend>Generate</legend>
+<div class="wrapper fadeInDown">
+    <fieldset class="text-center" id="formContent" >
+        <label>Generate Report</label>
         <form [formGroup]="reportForm" (ngSubmit)="genReport()">
             <label>Report Type:</label>
             <select formControlName="type">

@@ -18,7 +18,7 @@ let addOrder = async (request,response)=>{
 
 let findOrder = async (request,response)=>{
     let query = request.body;
-    let timeEnd = query.date;//set an end query time
+    let timeEnd = new Date(query.date);//set an end query time
     timeEnd.setHours(23);//Always set end query time to end of day
     timeEnd.setMinutes(59);
     timeEnd.setSeconds(59);

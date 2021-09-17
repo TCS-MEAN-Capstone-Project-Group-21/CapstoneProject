@@ -1,6 +1,6 @@
-<div class="text-center">
-    <fieldset>
-        <legend>Delete Employee</legend>
+<div class="wrapper fadeInDown text-center">
+    <fieldset class="text-center" id="formContent" >
+        <label>Delete Employee</label>
         <form [formGroup]="deleteEmployeeForm" (ngSubmit)="removeEmployee()">
             <label>ID:</label>
             <input type="number" formControlName="_id"><br>

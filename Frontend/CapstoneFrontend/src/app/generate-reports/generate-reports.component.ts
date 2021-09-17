@@ -24,10 +24,6 @@ export class GenerateReportsComponent implements OnInit {
 
   constructor(public orderSer:OrderService,public router:Router) { }
 
-  reportType?:string;
-  reportGenerated:boolean = false;
-  reportEmpty:boolean = false;
-
   ngOnInit(): void {
   }
  

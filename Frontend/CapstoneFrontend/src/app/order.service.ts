@@ -43,7 +43,7 @@ export class OrderService {
     return this.http.get<Order> ('http://localhost:9090/twoDatesPurchased/' + date + '/' + date2);
   }
   genReports(order:Order):Observable<any>{//send order query to backend
-    return this.http.post("http://localhost:9090/api/product/selectItems",order,
+    return this.http.post("http://localhost:9090/api/order/queryReport",order,
     {responseType:'json'});
   }
 }
