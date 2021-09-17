@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user/user.service';
+import { CartService } from '../user/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -22,7 +23,13 @@ export class CheckoutComponent implements OnInit {
   pid?:number;
   price?:number;
   quantity?:number;
-  constructor(public productItems:ProductService,public userSer:UserService,public activateRoute:ActivatedRoute,public router:Router) { }
+  
+  constructor(
+    public productItems:ProductService,
+    public userSer:UserService,
+    public cartSer:CartService,
+    public activateRoute:ActivatedRoute,
+    public router:Router) { }
 
 
   ngOnInit(): void {
@@ -37,6 +44,8 @@ export class CheckoutComponent implements OnInit {
     // follow the order model, get it with pings to the backend 
     //submit order, ping backend, create updated user funds (nothing from backend)
 // service request json data, pull what it needs  as json data, 
+
+
   }
 
   stay(){
@@ -67,8 +76,6 @@ export class CheckoutComponent implements OnInit {
   }
     
 //---SET USER TOTAL FUNDS---------
-    //this.totalFunds=100;
-    //this.totalCartCost=50;
     this.leftOverAmount=this.totalFunds - this.totalCartCost;
 
     if(this.leftOverAmount >= 0 ){
@@ -76,22 +83,7 @@ export class CheckoutComponent implements OnInit {
     } else {
       this.checkoutMsg = 'You do not have enough funds in your account to checkout. Please add more to your funds.'
     }
-
     document.getElementById("msg")!.innerHTML= this.checkoutMsg;
-
-    
-    //this.totalCartCost= this.price? * this.quantity;
-
-    //this.leftOverAmount=this.totalFunds? - parseFloat(this.totalCartCost?);
-
-    // this.leftOverAmount=this.totalFunds? - parseFloat(this.totalCartCost?);
-
-    // if(this.leftOverAmount? >= 0 ){
-    //   this.checkoutMsg = 'You have enough funds to checkout';
-    // } else {
-    //   this.checkoutMsg = 'You do not have enough funds in your account to checkout. Please add more to your funds.'
-    // }
-
   }
 
 }

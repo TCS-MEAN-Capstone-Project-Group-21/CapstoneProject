@@ -1,10 +1,12 @@
 <div>
+  <form [formGroup]="itemsRef" (ngSubmit)="updateCart()">
   <table border="1">
           <tr>
               <th>Product ID</th>
               <th>Product Name</th>
               <th>Product Price</th>
               <th>Product Quantity</th>
+              <th>Change Quantity Amount</th>
               <th>Delete</th>
           </tr>
           <div *ngIf="products!=null">
@@ -13,7 +15,8 @@
                 <td>{{product.productname}}</td>
                 <td>{{product.productprice}}</td>
                 <td>{{product.productquantity}}</td>
-                <td><input type="button" value="Delete" (click)="deleteProductInfo(product.productid)"/></td>
+                <td><input type="text" formControlName="newItemQty "id="changeQty" placeholder="Enter new quantity.."/></td>
+                <td><input type="button" value="Delete" formControlName="deleteItem" (click)="deleteProductInfo(product.productid)"/></td>
             </tr>
           </div>
   </table>
@@ -24,6 +27,9 @@
   <br/>
   <!--<input type="button" value="Checkout Cart" (click)=""/>-->
   <br/>
-  <a href="#">Checkout Cart</a>
+  <!-- <a href="#">Checkout Cart</a> -->
+  <input type="submit" value="Raise Ticket"/>
   <br/>
+  </form>
+</div>
 

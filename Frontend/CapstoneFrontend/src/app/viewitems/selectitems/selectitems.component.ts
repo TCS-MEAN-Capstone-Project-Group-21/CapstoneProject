@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../../product.service';
 import { Product } from '../../product';
+import { CartService } from 'src/app/user/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { hrtime } from 'process';
 
@@ -17,6 +18,8 @@ export class SelectitemsComponent implements OnInit {
   userID?:number;
   prodName?:String;
   prodPrice?:number;
+  cartArrID:Array<number>=[];
+  cartArrQty:Array<number>=[];
   
   selectedItemsRef = new FormGroup({
     userid:new FormControl(), //the name is the id name from the html page of each input/selection
@@ -27,7 +30,11 @@ export class SelectitemsComponent implements OnInit {
     //totalproductamount:new FormControl()
   });
 
-  constructor(public selectedItems:ProductService,public activateRoute:ActivatedRoute,public router:Router) { } // DI for Selected Items
+  constructor(
+    public selectedItems:ProductService,
+    public cartSer:CartService,
+    public activateRoute:ActivatedRoute,
+    public router:Router) { } // DI for Selected Items
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(data=>this.userID=data.userid);
@@ -146,12 +153,14 @@ export class SelectitemsComponent implements OnInit {
  
   }
 
-  addItemsToCart(pid:Number,prodname:string, prodcost:Number, pquan:Number) {
-    //obtain name, cost and quantity, calculate total amount
-    // send info to database (product.model.js)
+  addItemsToCart(pid:number,prodname:string, prodcost:Number, pquan:number) {
     let cartObject = {prodID:pid, quantity:pquan};
     this.productAfterStore?.push(cartObject);
     localStorage.setItem("prodAfterStore", JSON.stringify(this.productAfterStore));
+
+    this.cartArrID.push(pid);
+    this.cartArrQty.push(pquan);
+    this.cartSer.setCart(this.cartArrID,this.cartArrQty);//--!user function from cart services (setCart)
 
   }
 

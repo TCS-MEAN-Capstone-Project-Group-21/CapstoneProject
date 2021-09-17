@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
+import { CartService } from '../user/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -14,12 +15,17 @@ export class ViewitemsComponent implements OnInit {
   //OBTAIN user's product info from database
   constructor(
     public productItems:ProductService,
+    public cartSer:CartService,
     public activateRoute:ActivatedRoute,
     public router:Router) { }
   
   products?:Array<Product>;
   productID?:number;
   deleteMsg?:string;
+
+  itemRef = new FormGroup({
+    newItemQty:new FormControl()
+  });
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(data=>this.productID=data.productid);
@@ -36,6 +42,10 @@ export class ViewitemsComponent implements OnInit {
       this.deleteMsg=result.msg;
       this.getAllItems();
     },error=>console.log(error));
+  }
+
+  updateProductInfo(){
+    
   }
 
 }
