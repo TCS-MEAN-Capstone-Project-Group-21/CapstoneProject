@@ -2,12 +2,6 @@
 let employeeModel = require("../model/employee.model");
 
 
-module.exports.getAllraisedtickets = (req,res,next)=>{
-    employee.find((err,_raisetickects)=>{
-        if(err) throw err;
-      res.send(raisetickect);
-    })
-};
 
 
 //add employee

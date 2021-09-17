@@ -41,10 +41,10 @@ export class EmployeeService {
     {responseType:'json'});
   }
   
-  // getTickets():Observable<any>{
-  //   return this.http.get("http://localhost:9090/api/raiseticket/getTicket",raiseticket
-  //   {responseType:'json'});
-  // }
+  getTickets():Observable<any>{
+    return this.http.get("http://localhost:9090/api/raiseticket/getTickets",
+    {responseType:'json'});
+  }
 }
 
 
