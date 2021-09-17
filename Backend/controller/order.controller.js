@@ -29,8 +29,8 @@ let findOrder = async (request,response)=>{
         timeEnd.setMonth(query.date.getMonth()+1);//if the report is for a month increment the month
     }
     let result = await orderModel.find({
-        userId:query.userId,//where userId maches entered user Id
-        items:{$in:query.productId},//where product Id is included in the items array
+        ...query.userId ? {userId:query.userId}:{},//where userId maches entered user Id
+        ...query.productId ? {items:{$in:query.productId}}:{},//where product Id is included in the items array
         date:{$gt:query.date,$lt:timeEnd}//on orders that fall between the start and end date
     })
     response.send(result);//return result of query to front end
