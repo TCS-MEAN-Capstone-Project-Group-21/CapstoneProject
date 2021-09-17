@@ -16,7 +16,7 @@ import { DeleteitemsComponent } from './viewitems/deleteitems/deleteitems.compon
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
-import { GenerateRepotsComponent } from './generate-repots/generate-repots.component';
+import { GenerateReportsComponent } from './generate-reports/generate-reports.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { SendrequestComponent } from './sendrequest/sendrequest.component';
@@ -43,7 +43,7 @@ import { ViewRequestsComponent } from './view-requests/view-requests.component';
     CheckoutComponent,
     AddEmployeeComponent,
     DeleteEmployeeComponent,
-    GenerateRepotsComponent,
+    GenerateReportsComponent,
     EmployeeComponent,
     EditprofileComponent,
     SendrequestComponent,

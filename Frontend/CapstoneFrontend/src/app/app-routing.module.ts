@@ -8,7 +8,7 @@ import { DeleteEmployeeComponent } from './delete-employee/delete-employee.compo
 import { DeleteProductsComponent } from './delete-products/delete-products.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { GenerateRepotsComponent } from './generate-repots/generate-repots.component';
+import { GenerateReportsComponent } from './generate-reports/generate-reports.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { SendrequestComponent } from './sendrequest/sendrequest.component';
@@ -34,7 +34,7 @@ const routes: Routes = [{path:"", component:MainComponent},
 {path:"employee",component:EmployeeComponent},
 {path:"addEmployee",component:AddEmployeeComponent},
 {path:"deleteEmployee",component:DeleteEmployeeComponent},
-{path:"adminReport",component:GenerateRepotsComponent}
+{path:"adminReport",component:GenerateReportsComponent}
 
 ];
 

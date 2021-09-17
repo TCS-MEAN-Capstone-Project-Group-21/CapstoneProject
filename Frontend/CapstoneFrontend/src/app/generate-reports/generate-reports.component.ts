@@ -5,11 +5,11 @@ import { Order } from '../order';
 import { UserService } from '../user/user.service';
 
 @Component({
-  selector: 'app-generate-repots',
-  templateUrl: './generate-repots.component.html',
-  styleUrls: ['./generate-repots.component.css']
+  selector: 'app-generate-reports',
+  templateUrl: './generate-reports.component.html',
+  styleUrls: ['./generate-reports.component.css']
 })
-export class GenerateRepotsComponent implements OnInit {
+export class GenerateReportsComponent implements OnInit {
 
   msg?:string;
   user=[];
