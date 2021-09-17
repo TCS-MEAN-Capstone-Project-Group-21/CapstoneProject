@@ -7,13 +7,19 @@ export class CartService {
 
   constructor() { }
   
-  cart:Array<number> = [];
+  itemId:Array<number> = [];
+  itemQuantity:Array<number> = [];
 
-  setCart(cart:Array<number>){
-    this.cart=cart;
+  setCart(itemId:Array<number>, itemQuantity:Array<number>){
+    this.itemId=itemId;
+    this.itemQuantity=itemQuantity;
+  }
+
+  getQuantity():Array<number>{
+    return this.itemQuantity
   }
 
   getCart():Array<number>{
-    return this.cart;
+    return this.itemId;
   }
 }

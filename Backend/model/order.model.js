@@ -8,7 +8,8 @@ let orderSchema = mongoose.Schema({
     status:{type:String, require:true},
     date:{type:Date, require:true},
     cost:{type:Number, require:true},
-    items:{type:Array, require:true}
+    itemsId:{type:Array, require:true},
+    itemsQuantity:{type:Array, require:true}
 })
 
 let orderModel = mongoose.model("Order",orderSchema);

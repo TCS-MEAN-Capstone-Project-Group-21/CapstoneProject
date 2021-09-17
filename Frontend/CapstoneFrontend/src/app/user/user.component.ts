@@ -48,11 +48,13 @@ export class UserComponent implements OnInit {
   addToCart(id:number){
     let item = id;
     let cart = this.cartSer.getCart();
+    let quantity = this.cartSer.getQuantity();
     console.log(cart.indexOf(item));
     if(cart.indexOf(item)==-1){
       cart.push(item);
+      quantity.push(1);
       console.log(cart.indexOf(item));
-      this.cartSer.setCart(cart)
+      this.cartSer.setCart(cart, quantity)
     }
     console.log(cart);
   }
