@@ -5,6 +5,7 @@ import { AddProductsComponent } from './add-products/add-products.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminComponent } from './admin/admin.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { DeleteProductsComponent } from './delete-products/delete-products.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { GenerateRepotsComponent } from './generate-repots/generate-repots.component';
@@ -24,6 +25,7 @@ const routes: Routes = [{path:"", component:MainComponent},
 {path:"adminLoggedIn",component:AdminComponent},
 {path:"login",component:LoginComponent},
 {path:"signup",component:SignupComponent},
+{path:"deleteProduct",component:DeleteProductsComponent},
 {path:"sendrequest",component:SendrequestComponent},
 {path:"updateorder",component:UpdateorderComponent},
 {path:"unlockuser",component:UnlockuserComponent},
