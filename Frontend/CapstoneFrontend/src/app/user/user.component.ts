@@ -32,7 +32,7 @@ export class UserComponent implements OnInit {
     {id: 2, name: 'Grape', price: 5.00},{id: 0, name: 'Apple', price: 7.00},
     {id: 1, name: 'Blueberry', price: 8.00},
     {id: 2, name: 'Grape', price: 5.00},]
-  items:Data[] = []
+  //items:Data[] = []
   showCart = false
   showEdit = false
   localCart:Array<Array<any>> = []
@@ -46,18 +46,18 @@ export class UserComponent implements OnInit {
   curr_funds=0;
   itemSelected = new Map()
 
-  constructor(private locationStrategy: LocationStrategy,
+  constructor(private locationStrategy:LocationStrategy,
               public userService:UserService,
               public selectedItems:ProductService,
               public activateRoute:ActivatedRoute,
               public router:Router,
               public cartSer:CartService) {
     this.preventBackButton()
-    userService.getProducts().subscribe(result=> {
-      this.items = result.data
-      console.log(result.data);
-      console.log(this.items);
-    })
+    //userService.getProducts().subscribe(result=> {
+    //  this.items = result.data
+    //  console.log(result.data);
+    //  console.log(this.items);
+    //})
     if (this.currentUser != null) {
       userService.getUserByUsername(this.currentUser).subscribe((result:any) => {
         console.log(result.user[0].cart)
@@ -71,7 +71,7 @@ export class UserComponent implements OnInit {
         this.cartTotalCal()
       })
     }
-   }
+  }
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(data=>this.userID=data.userid);
@@ -93,17 +93,17 @@ export class UserComponent implements OnInit {
     }
   }
 
-  addToCart(item:string,itmPrice:any) {
-    if (this.itemSelected.has(item)) {
-      this.itemSelected.set(item, [(this.itemSelected.get(item)[0] + 1),itmPrice.toPrecision(2)])
-    } else {
-      this.itemSelected.set(item, [1,itmPrice.toPrecision(2)])
-    }
-    this.localCart = Array.from(this.itemSelected)
-    console.log("LOCAL CART "+this.localCart);
-    this.updateCartDB(item);
-    //this.cartTotalCal();
-  }
+  //addToCart(item:string,itmPrice:any) {
+  //  if (this.itemSelected.has(item)) {
+  //    this.itemSelected.set(item, [(this.itemSelected.get(item)[0] + 1),itmPrice.toPrecision(2)])
+  //  } else {
+  //    this.itemSelected.set(item, [1,itmPrice.toPrecision(2)])
+  //  }
+  //  this.localCart = Array.from(this.itemSelected)
+  //  console.log("LOCAL CART "+this.localCart);
+  //  this.updateCartDB(item);
+  //  //this.cartTotalCal();
+  //}
 
   
 
@@ -264,13 +264,13 @@ export class UserComponent implements OnInit {
     //totalproductamount:new FormControl()
   });
 
-  constructor(public selectedItems:ProductService,
-    public activateRoute:ActivatedRoute,
-    public router:Router,
-    public cartSer:CartService) { } // DI for Selected Items
+  //constructor(public selectedItems:ProductService,
+  //  public activateRoute:ActivatedRoute,
+  //  public router:Router,
+  //  public cartSer:CartService) { } // DI for Selected Items
 
 
-  addToCart(id:number){
+  addToCart(id:number,price:number){
     let item = id;
     let cart = this.cartSer.getCart();
     let quantity = this.cartSer.getQuantity();
@@ -280,6 +280,7 @@ export class UserComponent implements OnInit {
       quantity.push(1);
       console.log(cart.indexOf(item));
       this.cartSer.setCart(cart, quantity)
+      this.cartSer.cost+=price;
     }
     console.log(cart);
   }
@@ -288,4 +289,5 @@ export class UserComponent implements OnInit {
 
 class items{
   constructor(public id:number,public quantity:number,public user:number){}
+}
 

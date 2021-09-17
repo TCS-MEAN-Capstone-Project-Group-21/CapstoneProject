@@ -2,9 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from, Observable, Observer } from 'rxjs';
 import { ServerResponse } from './model.serverResponse'
-import { Product } from './model.product'
+import { Product } from './product'
 import { User } from './model.user'
-import { Ticket } from './model.ticket'
+import { Ticket } from './ticket'
 import { Order } from './model.order';
 
 @Injectable({

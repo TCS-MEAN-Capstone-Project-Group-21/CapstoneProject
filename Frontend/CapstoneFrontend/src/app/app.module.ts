@@ -4,10 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FundsComponent } from './user/funds/funds/funds.component';
-import { OrderStatusComponent } from './user/order-status/order-status/order-status.component';
-import { EditProfileComponent } from './user/edit-profile/edit-profile/edit-profile.component';
-import { SignInComponent } from './Employee/sign-in/sign-in.component';
+import { FundsComponent } from './user/funds/funds.component';
+import { OrderStatusComponent } from './user/order-status/order-status.component';
+import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
+import { EmployeeSignInComponent } from './employee/sign-in/sign-in.component';
 import { MainComponent } from './main/main.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
@@ -39,7 +39,7 @@ import { ViewRequestsComponent } from './view-requests/view-requests.component';
     FundsComponent,
     OrderStatusComponent,
     EditProfileComponent,
-    SignInComponent,
+    EmployeeSignInComponent,
     UserComponent,
     MainComponent,
     LoginComponent,

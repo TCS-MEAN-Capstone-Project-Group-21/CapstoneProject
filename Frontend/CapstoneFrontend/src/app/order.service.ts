@@ -30,17 +30,17 @@ export class OrderService {
         (error) => console.log(error)
       );
   }
-  getUserpurchased(id: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/getUserPurchasedDetails/' + id);
+  getUserpurchased(id: any): Observable<Order> {
+    return this.http.get<Order> ('http://localhost:9090/getUserPurchasedDetails/' + id);
   }
-  getProductpurchased(product: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/getProductPurchasedDetails/' + product);
+  getProductpurchased(product: any): Observable<Order> {
+    return this.http.get<Order> ('http://localhost:9090/getProductPurchasedDetails/' + product);
   }
-  getDatepurchased(date: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/getDatePurchasedDetails/' + date);
+  getDatepurchased(date: any): Observable<Order> {
+    return this.http.get<Order> ('http://localhost:9090/getDatePurchasedDetails/' + date);
   }
-  getDatesPurchased(date: any, date2: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/twoDatesPurchased/' + date + '/' + date2);
+  getDatesPurchased(date: any, date2: any): Observable<Order> {
+    return this.http.get<Order> ('http://localhost:9090/twoDatesPurchased/' + date + '/' + date2);
   }
   genReports(order:Order):Observable<any>{//send order query to backend
     return this.http.post("http://localhost:9090/api/product/selectItems",order,

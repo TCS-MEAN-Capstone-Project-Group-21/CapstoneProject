@@ -9,6 +9,7 @@ export class CartService {
   
   itemId:Array<number> = [];
   itemQuantity:Array<number> = [];
+  cost:number=0;
 
   setCart(itemId:Array<number>, itemQuantity:Array<number>){
     this.itemId=itemId;
