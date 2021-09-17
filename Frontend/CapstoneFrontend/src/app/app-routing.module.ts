@@ -17,6 +17,7 @@ import { UnlockuserComponent } from './unlockuser/unlockuser.component';
 import { UpdateorderComponent } from './updateorder/updateorder.component';
 import { UserComponent } from './user/user.component';
 import { ViewitemsComponent } from './viewitems/viewitems.component';
+import { UpdateProductsComponent } from './update-products/update-products.component';
 
 const routes: Routes = [{path:"", component:MainComponent},
 {path:"user/:userid",component:UserComponent},
@@ -34,8 +35,8 @@ const routes: Routes = [{path:"", component:MainComponent},
 {path:"employee",component:EmployeeComponent},
 {path:"addEmployee",component:AddEmployeeComponent},
 {path:"deleteEmployee",component:DeleteEmployeeComponent},
-{path:"adminReport",component:GenerateReportsComponent}
-
+{path:"adminReport",component:GenerateReportsComponent},
+{path:"updateProduct",component:UpdateProductsComponent}
 ];
 
 @NgModule({
