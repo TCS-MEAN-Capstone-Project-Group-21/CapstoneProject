@@ -1,0 +1,13 @@
+<div class="text-center">
+    <fieldset>
+        <legend>Delete Employee</legend>
+        <form [formGroup]="deleteEmployeeForm" (ngSubmit)="removeEmployee()">
+            <label>ID:</label>
+            <input type="number" formControlName="_id"><br>
+            <input type="submit" value="Delete Employee" [disabled]="!deleteEmployeeForm.valid">
+            <input type="reset" value="Clear">
+        </form>
+        <input type=button (click)="backToAdmin()" value="back to admin page">
+    </fieldset>
+    {{msg}}
+</div>

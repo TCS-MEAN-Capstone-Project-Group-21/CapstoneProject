@@ -1,0 +1,25 @@
+<div>
+    <h2>Update Products</h2>
+    <form action="" [formGroup]="updateForm" class="form-group">
+        <div class=" form-group mb-2">
+            <div class="col ">
+                <label for="prodName">Product ID</label><br>
+                <input type="text" formControlName="prodId"  class="form-control" placeholder="Product ID">
+            </div>
+            
+            <div class=" form-group mb-2 ">
+                <label for="prodPrice">Product Price</label><br>
+                <input type="text" formControlName="prodPrice"  class="form-control" placeholder="Product Price">
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="prodQuantity">Product Quantity</label><br>
+                <input type="text" formControlName="prodQuantity" class="form-control" placeholder="Product Quantity">
+            </div>
+
+            <div class="form-group mb-2">
+                <input type="button" (click)="updateProduct()" value="Update Product" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>

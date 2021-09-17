@@ -1,0 +1,17 @@
+<div class="text-center">
+    <fieldset>
+        <legend>Add Employee</legend>
+        <form [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()">
+            <label>First Name:</label>
+            <input type="text" formControlName="fname"><br>
+            <label>Last Name:</label>
+            <input type="text" formControlName="lname"><br>
+            <label>Email:</label>
+            <input type="text" formControlName="email"><br>
+            <input type="submit" value="Add Employee" [disabled]="!addEmployeeForm.valid">
+            <input type="reset" value="Clear">
+        </form>
+        <input type=button (click)="backToAdmin()" value="back to admin page">
+    </fieldset>
+    {{msg}}
+</div>

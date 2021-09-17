@@ -1,0 +1,31 @@
+<div class="text-center">
+    <h3>Send Request</h3>
+
+    <form [formGroup]="sendrequestForm" (ngSubmit)="createsend()">
+<label>Products</label>
+<select formControlName="product"><option>select</option>
+<option >Deli & Dairy</option>
+<option>Canned & Jarred Items</option>
+<option>Bakery & Bread</option>
+<option>Pasta, Grains & Nuts</option>
+<option>Frozen Foods</option>
+<option>Breakfast & Cereal</option>
+<option>Meat & Seafood</option>
+<option>Chips & Snacks</option>
+<option>Beverages</option>
+<option>Coffee & Tea</option>
+<option>Wine, Beer & Liquor</option>
+<option>Candy</option>
+
+</select>
+
+<label>quantity</label>
+<input type="text" formControlName="quantity">
+<input type="submit" value="Submit" [disabled]="!sendrequestForm.valid">
+</form>
+{{msg}}
+</div>
+
+
+
+

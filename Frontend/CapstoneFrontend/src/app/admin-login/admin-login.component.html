@@ -1,0 +1,14 @@
+<div class="text-center">
+    <fieldset>
+        <legend>Login</legend>
+        <form [formGroup]="loginForm" (ngSubmit)="attemptLogin()">
+            <label>ID:</label>
+            <input type="number" formControlName="_id"><br>
+            <label>Password:</label>
+            <input type="password" formControlName="password"><br>
+            <input type="submit" value="Login" [disabled]="!loginForm.valid">
+            <input type="reset" value="Clear">
+        </form>
+    </fieldset>
+    {{msg}}
+</div>

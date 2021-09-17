@@ -1,0 +1,13 @@
+<div>
+    <form [formGroup]="ticketRef" (ngSubmit)="sendTicket()">
+        <h2>Raise Ticket</h2>
+          <label for="">User ID</label>
+          <input type="text" formControlName="useridticket" id="useridticket" placeholder="Your user ID..">
+        <div>
+          <label for="">Reason for Ticket</label>
+          <br/>
+          <textarea formControlName="usermessageticket" id="usermessageticket" rows="5"></textarea>
+        </div><br/>
+        <input type="submit" value="Raise Ticket"/>
+      </form>
+</div>

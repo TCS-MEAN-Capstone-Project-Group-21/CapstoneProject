@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-image: url(https://st2.depositphotos.com/1013886/10274/i/950/depositphotos_102745280-stock-photo-healthy-eating-background-studio-photo.jpg);
+  background-size: cover;
+  width: auto;
+}
+
+.head {
+  background-color: rgba(168, 168, 168, 0.7);
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.left li {
+  float: left;
+}
+
+.right li {
+  float: right;
+}
+
+.menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.menu li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+input.ng-invalid {
+  border-left: 5px solid red;
+}

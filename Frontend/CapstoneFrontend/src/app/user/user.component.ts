@@ -1,9 +1,14 @@
+
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { LocationStrategy } from '@angular/common';
 import { UserService } from '../user.service'
-import{FundsComponent} from './funds/funds.component'
+import { FundsComponent } from './funds/funds.component'
+import { FormControl, FormGroup } from '@angular/forms';
+import { ProductService } from '../product.service';
+import { Product } from '../product';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-user',
@@ -11,7 +16,22 @@ import{FundsComponent} from './funds/funds.component'
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  productAfterStore?:Array<any>;
+  products?:Array<Product>;
+  userID:number=-1;
+  prodName?:String;
+  prodPrice?:number;
 
+  data = [
+    {id: 0, name: 'Apple', price: 7.00},
+    {id: 1, name: 'Blueberry', price: 8.00},
+    {id: 2, name: 'Grape', price: 5.00},{id: 0, name: 'Apple', price: 7.00},
+    {id: 1, name: 'Blueberry', price: 8.00},
+    {id: 2, name: 'Grape', price: 5.00},{id: 0, name: 'Apple', price: 7.00},
+    {id: 1, name: 'Blueberry', price: 8.00},
+    {id: 2, name: 'Grape', price: 5.00},{id: 0, name: 'Apple', price: 7.00},
+    {id: 1, name: 'Blueberry', price: 8.00},
+    {id: 2, name: 'Grape', price: 5.00},]
   items:Data[] = []
   showCart = false
   showEdit = false
@@ -26,7 +46,12 @@ export class UserComponent implements OnInit {
   curr_funds=0;
   itemSelected = new Map()
 
-  constructor(public router:Router, private locationStrategy: LocationStrategy, public userService:UserService) {
+  constructor(private locationStrategy: LocationStrategy,
+              public userService:UserService,
+              public selectedItems:ProductService,
+              public activateRoute:ActivatedRoute,
+              public router:Router,
+              public cartSer:CartService) {
     this.preventBackButton()
     userService.getProducts().subscribe(result=> {
       this.items = result.data
@@ -49,8 +74,9 @@ export class UserComponent implements OnInit {
    }
 
   ngOnInit(): void {
-   
+    this.activateRoute.params.subscribe(data=>this.userID=data.userid);
   }
+
 
   preventBackButton() {
     history.pushState(null, "", location.href);
@@ -230,6 +256,36 @@ export class UserComponent implements OnInit {
     let max = Math.floor(999999999999)
     let num = Math.floor(Math.random() * (max - min) + min)
     return `${num}`
+  }selectedItemsRef = new FormGroup({
+    productid:new FormControl(),
+    productname:new FormControl(),
+    productprice:new FormControl(),
+    productquantity:new FormControl()
+    //totalproductamount:new FormControl()
+  });
+
+  constructor(public selectedItems:ProductService,
+    public activateRoute:ActivatedRoute,
+    public router:Router,
+    public cartSer:CartService) { } // DI for Selected Items
+
+
+  addToCart(id:number){
+    let item = id;
+    let cart = this.cartSer.getCart();
+    let quantity = this.cartSer.getQuantity();
+    console.log(cart.indexOf(item));
+    if(cart.indexOf(item)==-1){
+      cart.push(item);
+      quantity.push(1);
+      console.log(cart.indexOf(item));
+      this.cartSer.setCart(cart, quantity)
+    }
+    console.log(cart);
   }
 
 }
+
+class items{
+  constructor(public id:number,public quantity:number,public user:number){}
+

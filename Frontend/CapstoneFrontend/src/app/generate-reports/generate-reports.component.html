@@ -1,0 +1,40 @@
+<div>
+    <fieldset class="text-center">
+        <legend>Generate</legend>
+        <form [formGroup]="reportForm" (ngSubmit)="genReport()">
+            <label>Report Type:</label>
+            <select formControlName="type">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+            </select><br>
+            <label>Starting from:</label>
+            <input type="date" formControlName="date"><br>
+            <label>User ID:</label>
+            <input type="number" formControlName="userId"><br>
+            <label>Product ID:</label>
+            <input type="number" formControlName="productId"><br>
+            <input type="submit" value="Get Report" [disabled]="!reportForm.valid">
+            <input type="reset" value="Clear">
+        </form>
+        <input type=button (click)="backToAdmin()" value="back to admin page">
+    </fieldset>
+    {{msg}}
+    <div class="text-center container">
+        <table class="bg-light text-center" border="1">
+            <tr>
+                <th>User ID</th>
+                <th>Date Ordered</th>
+                <th>Order Cost</th>
+                <th>Items Ordered</th>
+            </tr>
+            <tr *ngFor="let report of reports">
+                <td>{{report.userId}}</td>
+                <td>{{report.date}}</td>
+                <td>{{report.cost}}</td>
+                <td>{{report.items}}</td>
+            </tr>
+    </table>
+    </div>
+    <br/>
+  </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Order } from './model.order';
+import { Order } from './order';
 
 
 @Injectable({
@@ -41,5 +41,9 @@ export class OrderService {
   }
   getDatesPurchased(date: any, date2: any): Observable<Purchased[]> {
     return this.http.get<Purchased[]> ('http://localhost:9090/twoDatesPurchased/' + date + '/' + date2);
+  }
+  genReports(order:Order):Observable<any>{//send order query to backend
+    return this.http.post("http://localhost:9090/api/product/selectItems",order,
+    {responseType:'json'});
   }
 }
